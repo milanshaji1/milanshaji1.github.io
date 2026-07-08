@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milan Shaji | Data Systems That Prove Their Own Numbers</title>
+    <meta name="description" content="Final-year QUT Data Science + Business student building ML and LLM systems where every published figure is verified against source data. Available February 2027 for graduate data, analytics and consulting roles.">
+    <link rel="canonical" href="https://milanshaji1.github.io/">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Milan Shaji — Data systems that prove their own numbers">
+    <meta property="og:description" content="Data Science + Business graduate (QUT, 2026). ML pipelines, LLM evaluation, BI delivery — every figure measured and verified.">
+    <meta property="og:image" content="https://milanshaji1.github.io/assets/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+        :root {
+            --ink: #0F172A;
+            --paper: #F8FAFC;
+            --accent: #E11D48;
+            --verified: #059669;
+            --border: #E2E8F0;
+        }
+
+        .dark {
+            --ink: #F8FAFC;
+            --paper: #020617;
+            --accent: #F43F5E;
+            --verified: #10B981;
+            --border: #1E293B;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--ink);
+            background-color: var(--paper);
+            line-height: 1.6;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .font-display {
+            font-family: 'Archivo', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .tabular {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .hairline-border {
+            border: 1px solid var(--border);
+        }
+
+        .grid-bg {
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.15;
+        }
+
+        .sparkline-animate {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s ease-in-out forwards;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .verification-row {
+            opacity: 0.4;
+            transform: translateY(10px);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .verification-row.verified {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .verified-icon {
+            color: var(--verified);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-delay: 0.3s;
+        }
+
+        .verified .verified-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-[#F8FAFC] dark:bg-[#020617] text-[#0F172A] dark:text-[#F8FAFC] relative">
+        <!-- Grid Background -->
+        <div class="fixed inset-0 grid-bg pointer-events-none z-0"></div>
+
+        <!-- Header/Nav -->
+        <nav class="sticky top-0 z-50 bg-[#F8FAFC]/80 dark:bg-[#020617]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="font-display font-bold text-xl uppercase tracking-widest">MILAN SHAJI</span>
+                    <span class="px-2 py-0.5 border border-rose-500/30 text-rose-500 text-[10px] font-mono rounded">SYS_OK_V2027</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-tighter">
+                    <a href="#work" id="nav-work" class="hover:text-rose-500 transition-colors">Selected_Work</a>
+                    <a href="#methods" id="nav-methods" class="hover:text-rose-500 transition-colors">Verification_Methods</a>
+                    <a href="#about" id="nav-about" class="hover:text-rose-500 transition-colors">Profile_Log</a>
+                    <a href="#contact" id="nav-contact" class="px-4 py-2 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-sm hover:bg-rose-600 transition-all">Contact_Init</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="relative z-10">
+            <!-- HERO SECTION -->
+            <section class="max-w-7xl mx-auto px-6 pt-24 pb-32 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="inline-block px-3 py-1 border border-slate-200 dark:border-slate-800 rounded-full text-xs font-mono text-slate-500">
+                        PROJECTED_GRADUATION_2026.11
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-display font-black leading-[0.9] tracking-tighter">
+                        DATA SYSTEMS <br/>THAT <span class="text-rose-500 italic">PROVE</span> <br/>THEIR OWN NUMBERS.
+                    </h1>
+                    <p class="max-w-xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Final-year Data Science & Business student at QUT. I build analytics systems where every figure is re-verified against source provenance before publication. No magic numbers—just measurable, reproducible results for high-stakes decision makers.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#work" id="hero-work-cta" class="group flex items-center gap-2 px-6 py-3 bg-rose-500 text-white font-mono text-sm hover:bg-rose-600 transition-all">
+                            SEE_THE_WORK
+                            <iconify-icon icon="lucide:arrow-right" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        </a>
+                        <div class="flex items-center gap-1">
+                            <a href="mailto:milan.s.shaji@gmail.com" id="hero-email" class="p-3 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors" aria-label="Email"><iconify-icon icon="lucide:mail" class="text-xl"></iconify-icon></a>
+                            <a href="https://github.com/milanshaji1" id="hero-github" rel="noopener" class="p-3 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors" aria-label="GitHub"><iconify-icon icon="lucide:github" class="text-xl"></iconify-icon></a>
+                            <a href="https://linkedin.com/in/milan-shaji" id="hero-linkedin" rel="noopener" class="p-3 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors" aria-label="LinkedIn"><iconify-icon icon="lucide:linkedin" class="text-xl"></iconify-icon></a>
+                            <a href="assets/Milan-Shaji-Resume.pdf" id="hero-resume" download class="p-3 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors" aria-label="Resume"><iconify-icon icon="lucide:file-text" class="text-xl"></iconify-icon></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <!-- Sparkline Motif -->
+                    <div class="aspect-video bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-8 overflow-hidden flex flex-col justify-end group">
+                        <div class="absolute top-6 left-6 font-mono text-[10px] text-rose-500 uppercase tracking-widest">Market_Volatility_Signal</div>
+                        <svg viewBox="0 0 400 150" class="w-full h-48">
+                            <path d="M0 130 L40 120 L80 135 L120 40 L160 110 L200 125 L240 10 L280 100 L320 80 L360 120 L400 110" fill="none" stroke="currentColor" stroke-width="1.5" class="text-slate-300 dark:text-slate-700" />
+                            <path d="M0 130 L40 120 L80 135 L120 40 L160 110 L200 125 L240 10 L280 100 L320 80 L360 120 L400 110" fill="none" stroke="var(--accent)" stroke-width="2.5" class="sparkline-animate" />
+                            <circle cx="240" cy="10" r="4" fill="var(--accent)" class="animate-pulse" />
+                        </svg>
+                        <div class="mt-4 flex justify-between font-mono text-[10px] text-slate-400 uppercase">
+                            <span>QUIET</span>
+                            <span>$300/MWH_THRESHOLD</span>
+                            <span>SPIKE</span>
+                        </div>
+                        <div class="absolute top-0 right-0 p-2 opacity-10">
+                            <iconify-icon icon="lucide:activity" class="text-9xl"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VERIFIED METRICS STRIP -->
+            <section class="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 overflow-hidden">
+                <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-200 dark:divide-slate-800">
+                    <div class="p-8 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-3xl font-display font-bold tabular tracking-tighter">71%</span>
+                            <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500"></iconify-icon>
+                        </div>
+                        <p class="font-mono text-[10px] text-slate-500 leading-tight uppercase">
+                            Spike-day recall @ 20% alert budget <br/>
+                            <span class="text-slate-400">6-mo backtest vs 58% baseline</span>
+                        </p>
+                    </div>
+                    <div class="p-8 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-3xl font-display font-bold tabular tracking-tighter">30/30</span>
+                            <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500"></iconify-icon>
+                        </div>
+                        <p class="font-mono text-[10px] text-slate-500 leading-tight uppercase">
+                            LLM Golden-set evals passed <br/>
+                            <span class="text-slate-400">Deterministic scoring · $0.008/question</span>
+                        </p>
+                    </div>
+                    <div class="p-8 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-3xl font-display font-bold tabular tracking-tighter">TOP 7%</span>
+                            <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500"></iconify-icon>
+                        </div>
+                        <p class="font-mono text-[10px] text-slate-500 leading-tight uppercase">
+                            Global Kaggle finish <br/>
+                            <span class="text-slate-400">Best result · ~3,500 entrants</span>
+                        </p>
+                    </div>
+                    <div class="p-8 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-3xl font-display font-bold tabular tracking-tighter">1M+</span>
+                            <iconify-icon icon="lucide:check-circle-2" class="text-emerald-500"></iconify-icon>
+                        </div>
+                        <p class="font-mono text-[10px] text-slate-500 leading-tight uppercase">
+                            Rows live market data <br/>
+                            <span class="text-slate-400">AEMO NEM 5-min feed · refreshed daily</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SELECTED WORK -->
+            <section id="work" class="max-w-7xl mx-auto px-6 py-32 space-y-32">
+                <div class="flex items-end justify-between border-b border-slate-200 dark:border-slate-800 pb-8">
+                    <h2 class="text-4xl font-display font-black tracking-tighter uppercase">Selected_Evidence_Logs</h2>
+                    <span class="font-mono text-[10px] text-slate-400">3 PROJECTS_FOUND</span>
+                </div>
+
+                <!-- Project 1: GridPulse -->
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="space-y-10">
+                        <div class="space-y-4">
+                            <h3 class="text-3xl font-display font-bold">GridPulse: Energy Market AI</h3>
+                            <p class="text-slate-500">Real-time analysis system for the Australian National Electricity Market (NEM).</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8 text-sm">
+                            <div>
+                                <h4 class="font-mono text-[10px] uppercase text-slate-400 mb-2">Problem_Statement</h4>
+                                <p>NEM price spikes are sudden and opaque, causing millions in retail exposure for small players without quant tools.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-mono text-[10px] uppercase text-slate-400 mb-2">Solution_Build</h4>
+                                <p>DuckDB pipeline ingesting 1M+ rows of 5-min AEMO data (38 quality gates), a LightGBM spike-risk model, and an LLM analyst whose every citation is re-executed against the database before a brief publishes.</p>
+                            </div>
+                        </div>
+                        <div class="hairline-border rounded overflow-hidden bg-white dark:bg-slate-900">
+                            <table class="w-full text-left font-mono text-[11px]">
+                                <thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th class="px-4 py-3 font-semibold uppercase">Metric</th>
+                                        <th class="px-4 py-3 font-semibold uppercase">Measured</th>
+                                        <th class="px-4 py-3 font-semibold uppercase">Method</th>
+                                        <th class="px-4 py-3 w-8"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                    <tr class="verification-row">
+                                        <td class="px-4 py-4">Spike_recall</td>
+                                        <td class="px-4 py-4 tabular font-bold">71%</td>
+                                        <td class="px-4 py-4 italic">@20% alert budget, 6-mo rolling-origin (vs 58% baseline)</td>
+                                        <td class="px-4 py-4"><iconify-icon icon="lucide:check-circle-2" class="verified-icon text-emerald-500 text-lg"></iconify-icon></td>
+                                    </tr>
+                                    <tr class="verification-row">
+                                        <td class="px-4 py-4">Citations_verified</td>
+                                        <td class="px-4 py-4 tabular font-bold">26/26</td>
+                                        <td class="px-4 py-4 italic">Re-executed against DuckDB before publish</td>
+                                        <td class="px-4 py-4"><iconify-icon icon="lucide:check-circle-2" class="verified-icon text-emerald-500 text-lg"></iconify-icon></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a href="https://github.com/milanshaji1/gridpulse" rel="noopener" class="block bg-slate-100 dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 relative group self-start">
+                        <img src="assets/gridpulse-dashboard.png" alt="GridPulse dashboard: spike-risk per NEM region, price charts, backtest and eval scores" loading="lazy" class="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]">
+                        <div class="flex items-center justify-between px-4 py-2 border-t border-slate-200 dark:border-slate-800 font-mono text-[10px] uppercase text-slate-400">
+                            <span>Live dashboard · market &amp; spike risk</span>
+                            <span class="text-rose-500 group-hover:translate-x-1 transition-transform">View_repo →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Project 2: Gesture Canvas -->
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="lg:order-2 space-y-10">
+                        <div class="space-y-4">
+                            <h3 class="text-3xl font-display font-bold">Gesture Canvas: CV + LLM</h3>
+                            <p class="text-slate-500">Real-time hand-tracking interface that directs generative visuals via LLM prompting.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8 text-sm">
+                            <div>
+                                <h4 class="font-mono text-[10px] uppercase text-slate-400 mb-2">Problem_Statement</h4>
+                                <p>Letting a language model drive a live visual raises one question: how do you stop a bad model response from ever reaching the output a person is watching?</p>
+                            </div>
+                            <div>
+                                <h4 class="font-mono text-[10px] uppercase text-slate-400 mb-2">Solution_Build</h4>
+                                <p>MediaPipe hand tracking in TouchDesigner drives generative visuals; natural-language scene direction sits behind a strict JSON schema gate — every LLM response is validated before it touches the render.</p>
+                            </div>
+                        </div>
+                        <div class="hairline-border rounded overflow-hidden bg-white dark:bg-slate-900">
+                            <table class="w-full text-left font-mono text-[11px]">
+                                <thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th class="px-4 py-3 font-semibold uppercase">Metric</th>
+                                        <th class="px-4 py-3 font-semibold uppercase">Measured</th>
+                                        <th class="px-4 py-3 font-semibold uppercase">Method</th>
+                                        <th class="px-4 py-3 w-8"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                    <tr class="verification-row">
+                                        <td class="px-4 py-4">Pinch_detection</td>
+                                        <td class="px-4 py-4 tabular font-bold">531/531</td>
+                                        <td class="px-4 py-4 italic">Calibrated on 1,847 frames · 0 false-positives across 5,400+</td>
+                                        <td class="px-4 py-4"><iconify-icon icon="lucide:check-circle-2" class="verified-icon text-emerald-500 text-lg"></iconify-icon></td>
+                                    </tr>
+                                    <tr class="verification-row">
+                                        <td class="px-4 py-4">Bad_frames_to_render</td>
+                                        <td class="px-4 py-4 tabular font-bold">0</td>
+                                        <td class="px-4 py-4 italic">Schema gate rejects before render · 31 tests green in CI</td>
+                                        <td class="px-4 py-4"><iconify-icon icon="lucide:check-circle-2" class="verified-icon text-emerald-500 text-lg"></iconify-icon></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a href="https://github.com/milanshaji1/gesture-canvas" rel="noopener" class="lg:order-1 block bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 relative group self-start">
+                        <img src="assets/gesture-canvas.png" alt="Gesture Canvas concept: MediaPipe hand skeleton mid-pinch driving a particle burst" loading="lazy" class="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]">
+                        <div class="flex items-center justify-between px-4 py-2 border-t border-slate-800 font-mono text-[10px] uppercase text-slate-400">
+                            <span>Concept · pinch drives the burst</span>
+                            <span class="text-rose-500 group-hover:translate-x-1 transition-transform">View_repo →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Project 3: BI Capstone -->
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="space-y-10">
+                        <div class="space-y-4">
+                            <h3 class="text-3xl font-display font-bold">Business Intelligence Capstone</h3>
+                            <p class="text-slate-500">Operational efficiency project for local enterprise partner.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8 text-sm">
+                            <div>
+                                <h4 class="font-mono text-[10px] uppercase text-slate-400 mb-2">Problem_Statement</h4>
+                                <p>The client&rsquo;s data pipeline was silently unreliable, and their reporting burned a full working day of manual effort each cycle.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-mono text-[10px] uppercase text-slate-400 mb-2">Solution_Build</h4>
+                                <p>Diagnosed the pipeline&rsquo;s flaws and rebuilt it to process ~60,000 records reliably, then built an executive dashboard that replaced the manual reporting day with a live view.</p>
+                            </div>
+                        </div>
+                        <div class="hairline-border rounded overflow-hidden bg-white dark:bg-slate-900">
+                            <table class="w-full text-left font-mono text-[11px]">
+                                <thead class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+                                    <tr>
+                                        <th class="px-4 py-3 font-semibold uppercase">Metric</th>
+                                        <th class="px-4 py-3 font-semibold uppercase">Measured</th>
+                                        <th class="px-4 py-3 font-semibold uppercase">Method</th>
+                                        <th class="px-4 py-3 w-8"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                    <tr class="verification-row">
+                                        <td class="px-4 py-4">Reporting_time</td>
+                                        <td class="px-4 py-4 tabular font-bold">1 day → mins</td>
+                                        <td class="px-4 py-4 italic">Live exec dashboard replaced manual cycle</td>
+                                        <td class="px-4 py-4"><iconify-icon icon="lucide:check-circle-2" class="verified-icon text-emerald-500 text-lg"></iconify-icon></td>
+                                    </tr>
+                                    <tr class="verification-row">
+                                        <td class="px-4 py-4">Result</td>
+                                        <td class="px-4 py-4 tabular font-bold">Distinction</td>
+                                        <td class="px-4 py-4 italic">QUT IAB303, graded</td>
+                                        <td class="px-4 py-4"><iconify-icon icon="lucide:check-circle-2" class="verified-icon text-emerald-500 text-lg"></iconify-icon></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 relative group">
+                        <div class="p-12 h-full flex items-center justify-center">
+                             <div class="text-center space-y-4">
+                                <iconify-icon icon="lucide:lock" class="text-6xl text-slate-300 dark:text-slate-600"></iconify-icon>
+                                <p class="font-mono text-[10px] text-slate-400 uppercase">Confidential_client_build<br/>[no public screenshot]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW I WORK -->
+            <section class="bg-slate-900 text-white py-32 overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-1/3 h-full bg-rose-500/5 rotate-12 blur-3xl"></div>
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="flex flex-col md:flex-row gap-16">
+                        <div class="md:w-1/3">
+                            <h2 class="text-4xl font-display font-black uppercase leading-none">OPERATING<br/><span class="text-rose-500">PRINCIPLES</span></h2>
+                            <p class="mt-6 text-slate-400 font-mono text-xs uppercase tracking-widest">Ver_1.0.4_Stable</p>
+                        </div>
+                        <div class="md:w-2/3 grid md:grid-cols-3 gap-8">
+                            <div class="space-y-4">
+                                <div class="w-8 h-8 border border-rose-500 flex items-center justify-center font-mono text-xs text-rose-500">01</div>
+                                <h3 class="text-xl font-bold">Verify before publishing</h3>
+                                <p class="text-slate-400 text-sm">Every metric shown must include its measurement methodology. If it can't be proven, it shouldn't be presented.</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="w-8 h-8 border border-rose-500 flex items-center justify-center font-mono text-xs text-rose-500">02</div>
+                                <h3 class="text-xl font-bold">Business question first</h3>
+                                <p class="text-slate-400 text-sm">Models aren't the goal. Solving the ROI question, the churn cause, or the market risk is the goal.</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="w-8 h-8 border border-rose-500 flex items-center justify-center font-mono text-xs text-rose-500">03</div>
+                                <h3 class="text-xl font-bold">Honest baselines</h3>
+                                <p class="text-slate-400 text-sm">High accuracy is meaningless without comparison to a simple heuristic or a previous standard.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS & ABOUT -->
+            <section id="about" class="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-24">
+                <div class="space-y-12">
+                    <div class="space-y-4">
+                        <h2 class="text-3xl font-display font-bold">Expertise_Profile</h2>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                            I approach data through the dual lens of engineering rigour and business logic. My background in entrepreneurship ensures that the systems I build are aligned with organizational value, while my data science training ensures they are robust.
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <h4 class="font-mono text-[10px] uppercase text-rose-500 font-bold">Languages_&_Core</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">Python</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">SQL</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">R</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">Git / CI</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-mono text-[10px] uppercase text-rose-500 font-bold">ML_&_Frameworks</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">PyTorch</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">Scikit-Learn</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">LightGBM</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">MediaPipe</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">Claude API</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-mono text-[10px] uppercase text-rose-500 font-bold">Analytics_BI</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">PowerBI</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">Tableau</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">Pandas</span>
+                                <span class="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-xs">DuckDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="hairline-border rounded-lg bg-white dark:bg-slate-900 p-8 space-y-6 shadow-sm">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+                            <div class="w-16 h-16 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center overflow-hidden">
+                                <iconify-icon icon="lucide:user" class="text-3xl text-slate-400"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-xl">Milan Shaji</h3>
+                                <p class="font-mono text-[10px] text-slate-400 uppercase">Researcher / Engineer / Analyst</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-mono text-[10px] uppercase">Location</span>
+                                <span class="font-bold">Brisbane, AU</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-mono text-[10px] uppercase">Availability</span>
+                                <span class="font-bold text-emerald-500 uppercase">Feb_2027</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-mono text-[10px] uppercase">Degrees</span>
+                                <span class="font-bold">Dual B.DS + B.Bus (Ent)</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500 font-mono text-[10px] uppercase">Core_Focus</span>
+                                <span class="font-bold">Predictive Systems</span>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <a href="assets/Milan-Shaji-Resume.pdf" download class="block text-center w-full py-3 border border-slate-200 dark:border-slate-800 text-xs font-mono uppercase hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                DOWNLOAD_RESUME.PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="space-y-6">
+                        <h4 class="font-mono text-[10px] uppercase text-slate-400 font-bold tracking-widest">Historical_Logs</h4>
+                        <div class="space-y-8 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1px] before:bg-slate-200 dark:before:bg-slate-800">
+                            <div class="relative pl-8">
+                                <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-white dark:bg-slate-900 border-2 border-rose-500 flex items-center justify-center">
+                                    <div class="w-1.5 h-1.5 bg-rose-500 rounded-full"></div>
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <h5 class="font-bold text-sm uppercase">Queensland University of Technology</h5>
+                                    <span class="font-mono text-[10px] text-slate-400">2022 - 2026</span>
+                                </div>
+                                <p class="text-xs text-slate-500 uppercase mt-1">Bachelor of Data Science + Bachelor of Business</p>
+                            </div>
+                             <div class="relative pl-8">
+                                <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center">
+                                    <div class="w-1.5 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <h5 class="font-bold text-sm uppercase">Universal Store — Sales Associate</h5>
+                                    <span class="font-mono text-[10px] text-slate-400">2023 - Present</span>
+                                </div>
+                                <p class="text-xs text-slate-500 uppercase mt-1">High-volume retail alongside a full dual-degree load · consistently 15–20% over target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER / CONTACT -->
+            <footer id="contact" class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-32">
+                <div class="max-w-7xl mx-auto px-6 text-center space-y-12">
+                    <div class="inline-block p-4 border border-rose-500/20 rounded-lg bg-rose-500/5">
+                        <div class="flex items-center gap-2 text-rose-500 font-mono text-sm">
+                            <span class="relative flex h-3 w-3">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
+                            </span>
+                            STATUS: ACCEPTING_GRADUATE_INQUIRIES_FOR_FEB_2027
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-5xl md:text-7xl font-display font-black tracking-tighter uppercase">
+                        START THE <br/><span class="text-slate-400">VERIFICATION.</span>
+                    </h2>
+
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                        <a href="mailto:milan.s.shaji@gmail.com" id="footer-email-btn" class="w-full md:w-auto px-12 py-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-mono uppercase tracking-widest text-sm hover:bg-rose-600 dark:hover:bg-rose-600 dark:hover:text-white transition-all">
+                            INITIATE_CONTACT
+                        </a>
+                        <div class="flex gap-6">
+                            <a href="https://linkedin.com/in/milan-shaji" rel="noopener" id="footer-linkedin-link" class="text-slate-400 hover:text-rose-500 font-mono text-xs uppercase transition-colors">LinkedIn</a>
+                            <a href="https://github.com/milanshaji1" rel="noopener" id="footer-github-link" class="text-slate-400 hover:text-rose-500 font-mono text-xs uppercase transition-colors">GitHub</a>
+                            <a href="assets/Milan-Shaji-Resume.pdf" download id="footer-resume-link" class="text-slate-400 hover:text-rose-500 font-mono text-xs uppercase transition-colors">Resume</a>
+                        </div>
+                    </div>
+
+                    <div class="pt-24 border-t border-slate-100 dark:border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="font-mono text-[10px] text-slate-400 uppercase">
+                            © 2026 MILAN SHAJI // EVERY NUMBER MEASURED
+                        </p>
+                        <p class="font-mono text-[10px] text-slate-400 uppercase">
+                            LOCAL_TIME: <span id="clock">00:00:00</span> GMT+10
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Intersection Observer for the "Verified" rows animation
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('verified');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.verification-row').forEach(row => {
+            observer.observe(row);
+        });
+
+        // Clock Functionality
+        function updateClock() {
+            const now = new Date();
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Australia/Brisbane' };
+            document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Dark Mode Detection (Basic)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>
