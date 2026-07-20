@@ -25,7 +25,7 @@ export default function Work() {
   };
 
   return (
-    <section id="work" style={wrap}>
+    <section id="work" className="invert" style={wrap}>
       <div className="shell">
         <Reveal>
           <p className="mono" style={{ marginBottom: 34 }}>recent work</p>
@@ -45,14 +45,16 @@ export default function Work() {
                       onPointerLeave={() => setHover(null)}
                       onPointerMove={onMove}
                     >
-                      <motion.span
-                        style={rowTitle}
-                        animate={motionOK && hover === w.id ? { x: 16 } : { x: 0 }}
-                        transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
-                      >
-                        {w.title}
-                      </motion.span>
-                      <span className="mono" style={rowCaption}>{w.caption}</span>
+                      <span style={{ display: "block", minWidth: 0 }}>
+                        <motion.span
+                          style={rowTitle}
+                          animate={motionOK && hover === w.id ? { x: 16 } : { x: 0 }}
+                          transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
+                        >
+                          {w.title}
+                        </motion.span>
+                        <span className="mono" style={rowCaption}>{w.caption}</span>
+                      </span>
                       <span style={rowPlus} aria-hidden="true">{isOpen ? "–" : "+"}</span>
                     </button>
                   </h3>
@@ -131,12 +133,12 @@ const row = { borderTop: "1px solid var(--hairline)" };
 const rowTitle = {
   fontFamily: "var(--font-body)",
   fontWeight: 300,
-  fontSize: "clamp(2rem, 5.5vw, 4rem)",
-  lineHeight: 1.05,
-  letterSpacing: "-0.015em",
+  fontSize: "clamp(2.5rem, 6.5vw, 5.2rem)",
+  lineHeight: 1.02,
+  letterSpacing: "-0.02em",
   display: "inline-block",
 };
-const rowCaption = { textAlign: "right", maxWidth: 300 };
+const rowCaption = { display: "block", marginTop: 10 };
 const rowPlus = { fontWeight: 300, fontSize: "1.6rem", color: "var(--dim)" };
 const detailCopy = { maxWidth: "62ch" };
 const para = { color: "var(--dim)", fontSize: "0.96rem", marginBottom: 12 };

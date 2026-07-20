@@ -9,8 +9,14 @@ export const person = {
   linkedin: "https://linkedin.com/in/milan-shaji",
   located: "located in australia",
   available: "available february 2027",
-  blurb:
-    "Final-year Data Science × Business student at QUT. I build systems that stay running — and never publish a number code hasn't checked.",
+  blurb: [
+    "Final-year student of",
+    "Data Science × Business at QUT.",
+    "I build systems",
+    "that stay running —",
+    "and never publish a number",
+    "code hasn't checked.",
+  ],
 };
 
 export const greetings = ["G'day", "Hello", "Bonjour", "こんにちは", "Hola", "നമസ്കാരം", "Ciao"];

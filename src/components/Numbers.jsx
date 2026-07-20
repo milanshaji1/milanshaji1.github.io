@@ -3,7 +3,7 @@ import { Counter, Reveal } from "./bits.jsx";
 
 export default function Numbers() {
   return (
-    <section id="numbers" style={wrap}>
+    <section id="numbers" className="invert" style={wrap}>
       <div className="shell">
         <Reveal>
           <p className="mono" style={{ marginBottom: 34 }}>the numbers — measured, not estimated</p>

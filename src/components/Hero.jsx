@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { person } from "../content.js";
 import { RollingLink } from "./bits.jsx";
@@ -10,11 +11,35 @@ const NAV = [
   ["Contact", "#contact"],
 ];
 
+/* Yamada marks the current page with a ● — here the bullet tracks
+   whichever section is in view. */
+function useActiveSection() {
+  const [active, setActive] = useState("");
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActive("#" + e.target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    NAV.forEach(([, href]) => {
+      const el = document.querySelector(href);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+  return active;
+}
+
 /* Hero = Yamada's quiet top-left identity + left nav column,
    with Snellenberg's giant name marquee and rotating badge below. */
 export default function Hero({ booted }) {
   const motionOK = useMotionOK();
   const show = booted || !motionOK;
+  const active = useActiveSection();
 
   return (
     <section id="top" style={wrap} aria-label="Introduction">
@@ -39,13 +64,19 @@ export default function Hero({ booted }) {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           {NAV.map(([label, href]) => (
-            <RollingLink key={href} href={href} style={navLink}>
-              {label}
-            </RollingLink>
+            <span key={href} className={"nav-item" + (active === href ? " active" : "")}>
+              <span className="nav-dot" aria-hidden="true" />
+              <RollingLink href={href} style={navLink}>
+                {label}
+              </RollingLink>
+            </span>
           ))}
-          <RollingLink href="./Milan-Shaji-Resume.pdf" download style={navLink}>
-            Resume
-          </RollingLink>
+          <span className="nav-item">
+            <span className="nav-dot" aria-hidden="true" />
+            <RollingLink href="./Milan-Shaji-Resume.pdf" download style={navLink}>
+              Resume
+            </RollingLink>
+          </span>
         </motion.nav>
 
         {/* blurb, bottom-right (Yamada's bio block) */}
@@ -55,7 +86,12 @@ export default function Hero({ booted }) {
           animate={show ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.55 }}
         >
-          {person.blurb}
+          {person.blurb.map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < person.blurb.length - 1 && <br />}
+            </span>
+          ))}
         </motion.p>
       </div>
 
@@ -81,7 +117,7 @@ export default function Hero({ booted }) {
           </span>
         </div>
 
-        {/* rotating location badge */}
+        {/* rotating location badge — solid disc, Snellenberg-style */}
         <div style={badge}>
           <svg
             viewBox="0 0 100 100"
@@ -92,9 +128,9 @@ export default function Hero({ booted }) {
             }}
           >
             <defs>
-              <path id="badge-circle" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
+              <path id="badge-circle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
             </defs>
-            <text style={{ fontSize: 9.2, letterSpacing: 1.6, fill: "var(--dim)", fontFamily: "var(--font-mono)" }}>
+            <text style={{ fontSize: 8.6, letterSpacing: 1.7, fill: "var(--bg)", fontFamily: "var(--font-mono)" }}>
               <textPath href="#badge-circle">
                 {person.located} · {person.available} ·
               </textPath>
@@ -149,18 +185,20 @@ const marqueeTrack = {
 };
 const marqueeText = {
   fontFamily: "var(--font-body)",
-  fontWeight: 300,
-  fontSize: "clamp(4.5rem, 13vw, 11rem)",
-  lineHeight: 1.02,
-  letterSpacing: "-0.02em",
+  fontWeight: 400,
+  fontSize: "clamp(5rem, 15.5vw, 13.5rem)",
+  lineHeight: 1.0,
+  letterSpacing: "-0.025em",
   display: "inline-block",
 };
 const badge = {
   position: "absolute",
   right: "clamp(24px, 7vw, 110px)",
-  top: "-58px",
-  width: 116,
-  height: 116,
+  top: "-72px",
+  width: 142,
+  height: 142,
+  borderRadius: "50%",
+  background: "var(--fg)",
   display: "var(--badge-display, block)",
 };
 const badgeArrow = {
@@ -168,6 +206,6 @@ const badgeArrow = {
   inset: 0,
   display: "grid",
   placeItems: "center",
-  fontSize: "1.3rem",
-  color: "var(--fg)",
+  fontSize: "1.45rem",
+  color: "var(--bg)",
 };

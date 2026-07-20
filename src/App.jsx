@@ -16,6 +16,11 @@ export default function App() {
   const [booted, setBooted] = useState(!motionOK);
   const onBootDone = useCallback(() => setBooted(true), []);
 
+  /* lets pure-CSS animations (grain drift) key off the motion gate */
+  useEffect(() => {
+    document.documentElement.classList.toggle("motion-ok", motionOK);
+  }, [motionOK]);
+
   useEffect(() => {
     if (!motionOK) return;
     const lenis = new Lenis({ lerp: 0.09 });

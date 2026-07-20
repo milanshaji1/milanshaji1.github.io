@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { statement } from "../content.js";
-import { useSeen } from "./bits.jsx";
+import { Magnetic, useSeen } from "./bits.jsx";
 import { useMotionOK } from "../motion-ok.jsx";
 
 /* Snellenberg's word-staggered statement, verbatim technique:
@@ -30,14 +30,18 @@ export default function Statement() {
             </span>
           ))}
         </h2>
-        <motion.p
-          style={aside}
+        <motion.div
           initial={motionOK ? { opacity: 0, y: 16 } : false}
           animate={seen ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.35 }}
         >
-          {statement.aside}
-        </motion.p>
+          <p style={aside}>{statement.aside}</p>
+          <Magnetic strength={0.25}>
+            <a className="circle-btn" href="#info">
+              info ↓
+            </a>
+          </Magnetic>
+        </motion.div>
       </div>
     </section>
   );
@@ -57,5 +61,5 @@ const aside = {
   lineHeight: 1.8,
   color: "var(--dim)",
   maxWidth: "30ch",
-  paddingBottom: 6,
+  marginBottom: 26,
 };
