@@ -1,34 +1,54 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { greetings } from "../content.js";
+import { claims } from "../content.js";
 
-/* Greeting cycle → curved curtain lift. The timer guard guarantees the
-   gate opens even where requestAnimationFrame starves (hidden tabs). */
+/* The site checks its own numbers before it shows them — the same gate
+   GridPulse runs before a brief is allowed to publish. Each figure
+   scrambles, resolves, and locks with a check.
+
+   Driven by timers, not requestAnimationFrame: rAF starves in hidden or
+   occluded tabs, and the gate must always open. */
+
+const DIGITS = "0123456789";
+const scramble = (text) =>
+  text.replace(/[0-9]/g, () => DIGITS[Math.floor(Math.random() * 10)]);
+
 export default function Preloader({ onDone }) {
-  const [i, setI] = useState(0);
+  const [step, setStep] = useState(0);
+  const [noise, setNoise] = useState("");
 
   useEffect(() => {
-    let idx = 0;
-    let done = false;
+    let closed = false;
+    const timers = [];
+    let spin;
     const finish = () => {
-      if (done) return;
-      done = true;
+      if (closed) return;
+      closed = true;
       onDone();
     };
-    /* first word lingers, the rest snap through — Snellenberg pacing */
-    const tick = () => {
-      idx += 1;
-      if (idx < greetings.length) {
-        setI(idx);
-        timer = setTimeout(tick, idx === 1 ? 190 : 160);
-      } else {
-        timer = setTimeout(finish, 220);
+
+    const runRow = (i) => {
+      if (i >= claims.length) {
+        timers.push(setTimeout(finish, 380));
+        return;
       }
+      let ticks = 0;
+      spin = setInterval(() => {
+        setNoise(scramble(claims[i].n));
+        if (++ticks > 4) {
+          clearInterval(spin);
+          setNoise("");
+          setStep(i + 1);
+          timers.push(setTimeout(() => runRow(i + 1), 110));
+        }
+      }, 48);
     };
-    let timer = setTimeout(tick, 650);
-    const guard = setTimeout(finish, 2600);
+
+    timers.push(setTimeout(() => runRow(0), 320));
+    const guard = setTimeout(finish, 3200);
     return () => {
-      clearTimeout(timer);
+      timers.forEach(clearTimeout);
+      clearInterval(spin);
       clearTimeout(guard);
     };
   }, [onDone]);
@@ -39,11 +59,50 @@ export default function Preloader({ onDone }) {
       exit={{ y: "-100vh", transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } }}
       aria-hidden="true"
     >
-      <p style={styles.word}>
-        <span style={styles.dot} />
-        {greetings[i]}
-      </p>
-      {/* curved bottom edge that flattens as the curtain lifts */}
+      <div style={styles.panel}>
+        <p className="mono" style={styles.caption}>
+          verifying published figures
+        </p>
+
+        <ul style={styles.list}>
+          {claims.map((c, i) => {
+            const verified = i < step;
+            const active = i === step;
+            return (
+              <li
+                key={c.label}
+                style={{
+                  ...styles.row,
+                  opacity: verified ? 1 : active ? 0.85 : 0.22,
+                }}
+              >
+                <span style={styles.figure}>
+                  {active && noise ? noise : c.n}
+                </span>
+                <span className="mono" style={styles.label}>
+                  {c.label}
+                  <span style={styles.src}> · {c.src}</span>
+                </span>
+                <span style={{ ...styles.tick, opacity: verified ? 1 : 0 }}>✓</span>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div style={styles.track}>
+          <div
+            style={{
+              ...styles.fill,
+              transform: `scaleX(${step / claims.length})`,
+            }}
+          />
+        </div>
+        <p className="mono" style={styles.count}>
+          {step}/{claims.length} verified
+        </p>
+      </div>
+
+      {/* curved trailing edge, flattens as the curtain lifts */}
       <motion.svg
         style={styles.curve}
         viewBox="0 0 100 10"
@@ -62,25 +121,37 @@ const styles = {
     inset: 0,
     zIndex: 200,
     background: "#101112",
+    color: "#e7e4dd",
     display: "grid",
     placeItems: "center",
   },
-  word: {
-    display: "flex",
-    alignItems: "center",
+  panel: { width: "min(440px, 78vw)" },
+  caption: { color: "#8a877f", marginBottom: 22 },
+  list: { listStyle: "none", display: "grid", gap: 12, marginBottom: 26 },
+  row: {
+    display: "grid",
+    gridTemplateColumns: "5.2em minmax(0, 1fr) auto",
+    alignItems: "baseline",
     gap: 14,
-    fontFamily: "var(--font-sans)",
-    fontWeight: 400,
-    fontSize: "clamp(1.6rem, 4vw, 2.6rem)",
-    color: "#e7e4dd",
+    transition: "opacity 0.25s ease",
   },
-  dot: {
-    width: 9,
-    height: 9,
-    borderRadius: "50%",
+  figure: {
+    fontFamily: "var(--font-mono)",
+    fontSize: "0.95rem",
+    fontVariantNumeric: "tabular-nums",
+    letterSpacing: "0.02em",
+  },
+  label: { color: "#8a877f", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" },
+  src: { opacity: 0.55 },
+  tick: { fontSize: "0.8rem", transition: "opacity 0.25s ease" },
+  track: { height: 1, background: "#2a2b2e", overflow: "hidden" },
+  fill: {
+    height: "100%",
     background: "#e7e4dd",
-    display: "inline-block",
+    transformOrigin: "0 50%",
+    transition: "transform 0.32s cubic-bezier(0.76, 0, 0.24, 1)",
   },
+  count: { color: "#8a877f", marginTop: 10 },
   curve: {
     position: "absolute",
     left: 0,

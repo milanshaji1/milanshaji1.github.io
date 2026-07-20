@@ -19,7 +19,14 @@ export const person = {
   ],
 };
 
-export const greetings = ["G'day", "Hello", "Bonjour", "こんにちは", "Hola", "നമസ്കാരം", "Ciao"];
+/* Boot sequence: the site re-checks its own published figures before
+   showing them — the same gate GridPulse runs before a brief publishes. */
+export const claims = [
+  { n: "71%", label: "spike-day recall", src: "backtest" },
+  { n: "531/531", label: "pinches caught", src: "1,847 frames" },
+  { n: "30/30", label: "llm evals green", src: "live run" },
+  { n: "38", label: "quality gates", src: "ci" },
+];
 
 export const statement = {
   main: "I build data & AI systems that verify their own numbers. Live pipelines, honest baselines, no nonsense.",
