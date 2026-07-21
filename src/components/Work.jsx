@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { works } from "../content.js";
 import { Counter, Reveal } from "./bits.jsx";
+import Shots from "./Shots.jsx";
 import { useMotionOK } from "../motion-ok.jsx";
 
 /* Yamada's thin-title project list, Snellenberg's row interaction:
@@ -95,6 +96,7 @@ export default function Work() {
                             ))}
                           </ul>
                         </div>
+                        <Shots shots={w.shots} />
                       </motion.div>
                     )}
                   </AnimatePresence>

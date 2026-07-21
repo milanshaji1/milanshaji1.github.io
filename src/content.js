@@ -22,7 +22,7 @@ export const person = {
 /* Boot sequence: the site re-checks its own published figures before
    showing them — the same gate GridPulse runs before a brief publishes. */
 export const claims = [
-  { n: "71%", label: "spike-day recall", src: "backtest" },
+  { n: "71%", label: "spike-day recall", src: "5-mo backtest" },
   { n: "531/531", label: "pinches caught", src: "1,847 frames" },
   { n: "30/30", label: "llm evals green", src: "live run" },
   { n: "38", label: "quality gates", src: "ci" },
@@ -44,15 +44,32 @@ export const works = [
     linkLabel: "github.com/milanshaji1/gridpulse",
     body: [
       "An AI market analyst for Australia's electricity grid. Spot prices idle for days, then blow past $300/MWh with little warning — GridPulse ingests over a million rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.",
-      "A gradient-boosted early-warning model flags likely spike days, benchmarked with rolling-origin backtests. An LLM analyst writes the daily briefing: ~25 cited figures, each re-verified against source data before the brief may publish. Runs unattended every morning on GitHub Actions behind a public Streamlit dashboard.",
+      "A gradient-boosted early-warning model flags likely spike days, benchmarked with rolling-origin backtests. An LLM analyst writes the daily briefing: 21–25 cited figures, each re-verified against source data before the brief may publish. Runs unattended every morning on GitHub Actions behind a public Streamlit dashboard.",
     ],
     metrics: [
       { value: 71, suffix: "%", label: "spike-day recall @ 20% alert budget — baselines reached 58%" },
       { value: 30, suffix: "/30", label: "golden-question evals, live run" },
       { value: 38, suffix: "", label: "data-quality gates on every ingest" },
-      { raw: "~$0.07", label: "measured cost per verified brief" },
+      { raw: "$0.06–0.12", label: "cost per verified brief, across five measured runs" },
     ],
     stack: "python · duckdb · gradient boosting · claude api · github actions · streamlit",
+    shots: [
+      {
+        src: "./media/gridpulse-dashboard.jpg",
+        alt: "GridPulse dashboard showing tomorrow's spike risk per NEM region and 60 days of daily average spot prices",
+        caption: "the live dashboard — spike risk per region, 60 days of real AEMO prices",
+      },
+      {
+        src: "./media/gridpulse-brief.jpg",
+        alt: "A published GridPulse daily brief; cited figures are highlighted where they were re-verified against the database",
+        caption: "a published brief — every highlighted figure re-checked against the database first",
+      },
+      {
+        src: "./media/gridpulse-evals.jpg",
+        alt: "Golden-set evaluation table showing truth versus model answer with all rows correct, and backtest results JSON",
+        caption: "the eval run and backtest output the headline numbers come from",
+      },
+    ],
   },
   {
     id: "gesture-canvas",
@@ -93,7 +110,7 @@ export const works = [
 ];
 
 export const numbers = [
-  { value: 71, suffix: "%", label: "spike-day recall" },
+  { value: 71, suffix: "%", label: "spike-day recall, 5-mo backtest" },
   { value: 531, suffix: "/531", label: "pinches caught" },
   { value: 30, suffix: "/30", label: "llm evals green" },
   { value: 94, suffix: "%", label: "cnn test accuracy" },

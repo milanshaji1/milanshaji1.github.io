@@ -20,7 +20,7 @@ export default function Numbers() {
         </div>
         <Reveal>
           <p className="mono" style={{ marginTop: 44 }}>
-            sources: rolling-origin backtest · live eval runs · ci · graded results
+            sources: rolling-origin backtest (feb–jul 2026) · live eval runs · ci · graded results
           </p>
         </Reveal>
       </div>

@@ -13,11 +13,26 @@ export function useSeen(ref, margin = "-8% 0px") {
     if (inView || passed) return;
     const check = () => {
       const el = ref.current;
-      if (el && el.getBoundingClientRect().bottom < 0) setPassed(true);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      /* Settle if the element sits above the viewport (an anchor jump
+         skipped it) or is already on screen. The second case matters
+         when content appears without a scroll — e.g. a work row
+         expanding — where IntersectionObserver may never fire. */
+      if (r.bottom < 0 || (r.top < innerHeight && r.bottom > 0 && r.height > 0)) {
+        setPassed(true);
+      }
     };
     check();
+    /* re-check while an expand animation settles the layout */
+    const timers = [300, 700, 1200].map((ms) => setTimeout(check, ms));
     addEventListener("scroll", check, { passive: true });
-    return () => removeEventListener("scroll", check);
+    addEventListener("resize", check);
+    return () => {
+      timers.forEach(clearTimeout);
+      removeEventListener("scroll", check);
+      removeEventListener("resize", check);
+    };
   }, [inView, passed, ref]);
   return inView || passed;
 }
