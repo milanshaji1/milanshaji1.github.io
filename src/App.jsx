@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
 import { useMotionOK } from "./motion-ok.jsx";
 import Preloader from "./components/Preloader.jsx";
+import { ResumeProvider } from "./components/ResumeViewer.jsx";
 import Toggles from "./components/Toggles.jsx";
 import Hero from "./components/Hero.jsx";
 import Statement from "./components/Statement.jsx";
@@ -37,7 +38,7 @@ export default function App() {
   }, [motionOK]);
 
   return (
-    <>
+    <ResumeProvider>
       <AnimatePresence>{!booted && <Preloader onDone={onBootDone} />}</AnimatePresence>
       <div className="frame" aria-hidden="true" />
       <p className="frame-copyright mono">© milan shaji</p>
@@ -50,6 +51,6 @@ export default function App() {
         <Info />
       </main>
       <FooterContact />
-    </>
+    </ResumeProvider>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { person } from "../content.js";
 import { Magnetic, Reveal, RollingLink } from "./bits.jsx";
+import { useResume } from "./ResumeViewer.jsx";
 
 /* Snellenberg's footer, faithfully: huge invitation, magnetic blue
    pill + email pill on a hairline, then VERSION / LOCAL TIME / SOCIALS. */
@@ -20,6 +21,21 @@ function Clock() {
 }
 
 export default function FooterContact() {
+  const openResume = useResume();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async (e) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(person.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* clipboard blocked — fall back to the mail client */
+      window.location.href = "mailto:" + person.email;
+    }
+  };
+
   return (
     <footer id="contact" style={wrap}>
       <div className="shell">
@@ -39,9 +55,13 @@ export default function FooterContact() {
               </a>
             </Magnetic>
             <Magnetic strength={0.2}>
-              <a className="pill" href={"mailto:" + person.email}>
-                {person.email}
-              </a>
+              <button
+                className="pill"
+                onClick={copyEmail}
+                aria-label={`Copy email address ${person.email}`}
+              >
+                {copied ? "copied ✓" : person.email}
+              </button>
             </Magnetic>
           </div>
         </Reveal>
@@ -70,7 +90,14 @@ export default function FooterContact() {
                 <RollingLink href={person.github} rel="noopener" style={social}>
                   GitHub
                 </RollingLink>
-                <RollingLink href="./Milan-Shaji-Resume.pdf" download style={social}>
+                <RollingLink
+                  href="./Milan-Shaji-Resume.pdf"
+                  style={social}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openResume();
+                  }}
+                >
                   Resume
                 </RollingLink>
               </div>

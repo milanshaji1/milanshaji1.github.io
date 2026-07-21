@@ -7,8 +7,11 @@ export default function Shots({ shots }) {
   const motionOK = useMotionOK();
   if (!shots?.length) return null;
 
+  /* a lone screenshot shouldn't swallow the viewport */
+  const single = shots.length === 1;
+
   return (
-    <div style={grid}>
+    <div style={{ ...grid, maxWidth: single ? 760 : "none" }}>
       {shots.map((s, i) => (
         <motion.figure
           key={s.src}

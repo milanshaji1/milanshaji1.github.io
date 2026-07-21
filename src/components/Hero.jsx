@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { person } from "../content.js";
 import { RollingLink } from "./bits.jsx";
+import { useResume } from "./ResumeViewer.jsx";
 import { useMotionOK } from "../motion-ok.jsx";
 
 const NAV = [
@@ -40,6 +41,7 @@ export default function Hero({ booted }) {
   const motionOK = useMotionOK();
   const show = booted || !motionOK;
   const active = useActiveSection();
+  const openResume = useResume();
 
   return (
     <section id="top" style={wrap} aria-label="Introduction">
@@ -73,7 +75,14 @@ export default function Hero({ booted }) {
           ))}
           <span className="nav-item">
             <span className="nav-dot" aria-hidden="true" />
-            <RollingLink href="./Milan-Shaji-Resume.pdf" download style={navLink}>
+            <RollingLink
+              href="./Milan-Shaji-Resume.pdf"
+              style={navLink}
+              onClick={(e) => {
+                e.preventDefault();
+                openResume();
+              }}
+            >
               Resume
             </RollingLink>
           </span>

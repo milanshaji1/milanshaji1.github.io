@@ -88,6 +88,37 @@ export const works = [
       { value: 31, suffix: "", label: "automated tests in CI" },
     ],
     stack: "python · touchdesigner · mediapipe · claude api · pytest",
+    shots: [
+      {
+        src: "./media/gesture-canvas-concept.jpg",
+        alt: "Concept illustration of MediaPipe hand landmarks with a particle burst at the pinch point",
+        caption: "concept illustration, not a screenshot — the live system needs a webcam",
+      },
+    ],
+  },
+  {
+    id: "handtracked-vfx",
+    title: "Handtracked VFX",
+    caption: "2026 / real-time video effect / live capture",
+    hoverline: "3/3 regions gated · 23 filters evaluated",
+    link: "https://github.com/milanshaji1/handtracked-vfx",
+    linkLabel: "github.com/milanshaji1/handtracked-vfx",
+    body: [
+      "A real-time hand-tracked video effect, built after a filter trend went around social media. Three corner-pinned quads — one per finger-pair across both hands — mask a live-filtered copy of the camera feed, so moving your hands reshapes where each effect appears.",
+      "Two failure modes drove the build. Effects that displace pixels can leak outside their intended shape, so each copy is filtered before masking rather than after. And losing tracking mid-effect can corrupt the whole render, so every region is gated to disappear cleanly when a hand leaves the frame.",
+    ],
+    metrics: [
+      { value: 3, suffix: "/3", label: "regions verified to hide cleanly on hand dropout" },
+      { value: 23, suffix: "", label: "built-in filters rendered against live video before choosing" },
+    ],
+    stack: "touchdesigner · mediapipe · real-time compositing",
+    shots: [
+      {
+        src: "./media/handtracked-vfx.jpg",
+        alt: "Live capture: three hand-framed regions, each showing a different filter applied to the camera feed",
+        caption: "live capture — three regions, each a different filter, framed by finger-pairs",
+      },
+    ],
   },
   {
     id: "bi-capstone",
@@ -137,7 +168,7 @@ export const info = {
     ["delivery", "requirements analysis · data validation · documentation · business cases · stakeholder communication"],
   ],
   log: [
-    ["2026", "GridPulse & Gesture Canvas shipped · Forage simulations (Quantium, CommBank, ANZ)"],
+    ["2026", "GridPulse, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
     ["2022–2026", "QUT dual degree — Data Science | Business (Ent. & Innovation), Distinction for the IAB303 capstone"],
     ["2024–now", "QUT Data Science Club committee · volunteer tutor · Kaggle (best: top 7% of ~3,500)"],
     ["2023–now", "Universal Store, sales associate"],

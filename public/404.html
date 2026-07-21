@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not found — Milan Shaji</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+  :root { --bg:#101112; --fg:#e7e4dd; --dim:#8a877f; --hairline:#2a2b2e; --blue:#455ce9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; background:var(--bg); }
+  body {
+    color:var(--fg);
+    font-family:"Archivo", system-ui, sans-serif;
+    display:grid; place-items:center; padding:32px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .frame { position:fixed; inset:10px; border:1px solid var(--hairline); pointer-events:none; }
+  .mono {
+    font-family:"JetBrains Mono", ui-monospace, monospace;
+    font-size:.72rem; letter-spacing:.06em; color:var(--dim);
+  }
+  h1 {
+    font-weight:300; font-size:clamp(3rem, 12vw, 8rem);
+    letter-spacing:-.03em; line-height:1; margin:18px 0 14px;
+  }
+  p { color:var(--dim); max-width:44ch; line-height:1.8; margin-bottom:30px; }
+  a.back {
+    display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--hairline); border-radius:999px;
+    padding:14px 26px; color:var(--fg); text-decoration:none;
+    transition:background .3s ease, border-color .3s ease, color .3s ease;
+  }
+  a.back:hover { background:var(--blue); border-color:var(--blue); color:#f2f1ee; }
+  .wrap { max-width:640px; }
+</style>
+</head>
+<body>
+  <div class="frame" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="mono">error 404 · page not found</p>
+    <h1>Nothing here.</h1>
+    <p>
+      That page doesn&rsquo;t exist &mdash; which at least is a number I can verify.
+      Everything worth reading is on the front page.
+    </p>
+    <a class="back" href="/">Back to the start</a>
+  </div>
+</body>
+</html>
