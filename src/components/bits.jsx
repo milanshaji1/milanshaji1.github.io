@@ -66,9 +66,15 @@ export function Counter({ value, prefix = "", suffix = "", style }) {
   useEffect(() => {
     if (seen) mv.set(value);
   }, [seen, mv, value]);
+  const final = prefix + value.toLocaleString("en-AU") + suffix;
+
   return (
     <motion.span ref={ref} style={style}>
-      {motionOK ? text : prefix + value.toLocaleString("en-AU") + suffix}
+      {/* The animated value counts from zero, so printing (which never
+          scrolls) would emit "0". Print takes the static twin instead.
+          A MotionValue must be a direct child of a motion element. */}
+      <motion.span className="anim-value">{motionOK ? text : final}</motion.span>
+      <span className="print-value">{final}</span>
     </motion.span>
   );
 }

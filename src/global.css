@@ -391,11 +391,16 @@ html.motion-ok body::after {
   }
 }
 
+.print-value { display: none; }
+
 /* ------------------------------------------------------------------
    Print: recruiters do print these. Drop the theatre, keep the facts,
    and surface link targets so a paper copy is still usable.
    ------------------------------------------------------------------ */
 @media print {
+  .anim-value { display: none !important; }
+  .print-value { display: inline !important; }
+
   :root, :root[data-theme="dark"], :root[data-theme="light"] {
     --bg: #fff;
     --fg: #000;
@@ -404,6 +409,16 @@ html.motion-ok body::after {
     --blue: #000;
   }
   body { background: #fff; color: #000; font-size: 11pt; line-height: 1.45; }
+
+  /* Scroll reveals never fire when printing, so everything below the
+     fold would come out blank. Force the animated state to its end. */
+  *, *::before, *::after {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    filter: none !important;
+  }
   body::after,
   .frame,
   .frame-copyright,
