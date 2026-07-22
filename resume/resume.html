@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Milan Shaji Resume</title>
+<style>
+  @page { size: A4; margin: 7mm 17mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #141414;
+    font-size: 10.0pt;
+    line-height: 1.24;
+    margin: 0;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 800;
+    margin: 0 0 2pt 0;
+    letter-spacing: 0.3pt;
+  }
+  .contact {
+    font-size: 9.1pt;
+    color: #222;
+    margin-bottom: 8pt;
+  }
+  h2 {
+    font-size: 10.6pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    border-bottom: 1.1pt solid #141414;
+    padding-bottom: 2pt;
+    margin: 8pt 0 5pt 0;
+  }
+  h2:first-of-type { margin-top: 0; }
+  p { margin: 0 0 5pt 0; }
+  ul { margin: 2pt 0 0 0; padding-left: 13pt; }
+  li { margin-bottom: 1.3pt; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10pt;
+  }
+  .entry-title { font-weight: 700; font-size: 10.3pt; }
+  .entry-sub { font-style: italic; font-size: 9.8pt; }
+  .meta { font-size: 9.3pt; color: #333; white-space: nowrap; }
+  .entry { margin-bottom: 6.5pt; break-inside: avoid; page-break-inside: avoid; }
+  .entry:last-child { margin-bottom: 0; }
+  h2 { break-after: avoid; page-break-after: avoid; }
+  .skill-cat { font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>MILAN SHAJI</h1>
+<div class="contact">milan.s.shaji@gmail.com | 0490 667 589 | Helensvale, QLD (open to relocation) | linkedin.com/in/milan-shaji | github.com/milanshaji1 | Australian Citizen</div>
+
+<h2>Profile</h2>
+<p>Final-year QUT student completing a dual degree in Data Science and Business (Entrepreneurship &amp; Innovation), graduating late 2026. Strong technical base across Python, SQL, machine learning and data pipeline work, paired with a business degree that keeps the focus on what the output needs to deliver, not just whether the model performs. Targeting roles in data, analytics, business and AI, turning data and AI into solutions that solve real business challenges alongside high-performing teams. Available from early 2027, open to relocation, Australian citizen.</p>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">Queensland University of Technology (QUT), Brisbane</span>
+    <span class="meta">2022 &ndash; 2026</span>
+  </div>
+  <div class="entry-sub">Bachelor of Data Science | Bachelor of Business (Entrepreneurship &amp; Innovation)</div>
+  <ul>
+    <li>Expected graduation late 2026; both degrees studied concurrently.</li>
+    <li>Awarded a Distinction for the IAB303 Business Intelligence capstone (detailed below).</li>
+    <li>Relevant coursework: Machine Learning, Business Intelligence, Applied Statistical Methods, Data Science Capstone.</li>
+  </ul>
+</div>
+
+<h2>Key Skills</h2>
+<p><span class="skill-cat">Data, AI &amp; Analytics:</span> Python (Pandas, NumPy, scikit-learn, PyTorch), SQL, R, machine learning and deep learning, computer vision (MediaPipe), LLM integration and evaluation (Claude API), statistical modelling, data pipeline design, ETL (extract, transform, load).</p>
+<p><span class="skill-cat">Visualisation &amp; BI:</span> Power BI, Tableau, Teradata, TouchDesigner (real-time interactive visuals), dashboard design, data storytelling for non-technical audiences.</p>
+<p><span class="skill-cat">Delivery &amp; Impact:</span> Requirements analysis, data quality and validation, technical documentation, business case writing, project delivery.</p>
+<p><span class="skill-cat">Tools &amp; Infrastructure:</span> AWS (S3, EC2), Git, Jupyter, Linux.</p>
+<p><span class="skill-cat">Communication:</span> Presenting technical work to non-technical stakeholders and clients, written reporting, team collaboration.</p>
+
+<h2>Projects</h2>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">GridPulse &mdash; AI Market Analyst for Australia&rsquo;s Electricity Grid</span>
+    <span class="meta">github.com/milanshaji1/gridpulse&nbsp;&nbsp;2026</span>
+  </div>
+  <ul>
+    <li>Built an end-to-end ML and GenAI system on live energy-market data: ingests 1M+ rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.</li>
+    <li>Trained a gradient-boosted price-spike early-warning model achieving 71% recall of $300+/MWh spike days at a 20% alert budget in a five-month rolling-origin backtest, versus 58% for baseline methods.</li>
+    <li>Engineered an LLM analyst agent whose daily market briefings cite 21&ndash;25 figures, each programmatically re-verified against source data before publication; scored 100% (30/30) on a golden-question evaluation set at $0.06&ndash;$0.12 per brief.</li>
+    <li>Deployed as a fully automated daily pipeline (GitHub Actions) with a Streamlit dashboard; verified briefs publish unattended every morning.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">Gesture Canvas &mdash; Real-Time Hand-Tracked Visuals with a Language-Directed Scene Controller</span>
+    <span class="meta">2026</span>
+  </div>
+  <div class="entry-sub">github.com/milanshaji1/gesture-canvas</div>
+  <ul>
+    <li>Built a real-time computer-vision interaction system in TouchDesigner: MediaPipe webcam hand tracking drives generative visuals composited over the live camera feed &mdash; a shape tracks the thumb&ndash;index pinch point, scales with hand aperture, and hides when tracking drops &mdash; with the entire node network generated from reproducible Python rather than hand-built.</li>
+    <li>Engineered a natural-language scene-direction layer (Claude API) behind a strict JSON parameter contract: every model response is schema-validated field-by-field and rejected before it can touch the live render &mdash; the same verification-gate discipline as GridPulse, generalised to a real-time system with no database to check against.</li>
+    <li>Calibrated the pinch-gesture detector on 1,847 frames of recorded hand data: validated thresholds catch 531/531 true pinches with zero false positives across 5,400+ open-hand and no-hand frames; 31 automated tests (schema gate, mocked-API contract, verified session recaps) run in CI.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">Handtracked VFX &mdash; Real-Time Hand-Tracked Filter Effects</span>
+    <span class="meta">github.com/milanshaji1/handtracked-vfx&nbsp;&nbsp;2026</span>
+  </div>
+  <ul>
+    <li>Built a real-time computer-vision VFX effect in TouchDesigner: MediaPipe hand tracking drives three live-filtered video regions, each corner-pinned between a different pair of tracked fingertips across both hands.</li>
+    <li>Diagnosed and fixed two engineering issues through targeted testing: a masking-order bug letting displacement filters leak colour outside their region (fixed by filtering before masking), and a tracking-dropout case corrupting a region&rsquo;s shape when a hand left frame (fixed with per-region validity gating, verified via a captured live frame).</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">IAB303 Business Intelligence Capstone, QUT &mdash; Distinction</span>
+    <span class="meta">2024</span>
+  </div>
+  <ul>
+    <li>Data lead on a four-person team delivering a business intelligence solution for a real industry client.</li>
+    <li>Diagnosed critical flaws in the client&rsquo;s existing data pipeline and rebuilt it from scratch to process roughly 60,000 records reliably.</li>
+    <li>Designed an executive dashboard that cut a full day of manual reporting down to a live view refreshed in minutes.</li>
+    <li>Client rated the work among the most useful they had received from a student team, citing both analytical quality and clarity of outputs.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">CAB420 Machine Learning, QUT</span>
+    <span class="meta">2024</span>
+  </div>
+  <ul>
+    <li>Built image-classification models in PyTorch, covering data preprocessing, convolutional neural network (CNN) design, transfer learning and evaluation on held-out test sets.</li>
+    <li>Completed independently from problem definition through to a documented, evaluated model, reaching 94% accuracy on the test set.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">MXB262 Applied Statistical Methods, QUT</span>
+    <span class="meta">2023</span>
+  </div>
+  <ul>
+    <li>Applied regression, generalised linear models (GLMs), spatial modelling and time-series analysis in R to a real invasive-species dataset of over 10,000 observations.</li>
+    <li>Identified a fundamental flaw in the modelling approach midway through, rebuilt the methodology, and still delivered strong results.</li>
+    <li>Reinforced a discipline central to analytics work: a model can appear to perform while being fundamentally wrong, so rigorous validation is not optional.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">DSB300 Data Science Capstone, QUT</span>
+    <span class="meta">2025</span>
+  </div>
+  <ul>
+    <li>End-to-end data science project on a real dataset: problem scoping, data preparation, model development and evaluation, and a written report prepared for a non-technical audience.</li>
+  </ul>
+</div>
+
+<h2>Certifications &amp; Professional Development</h2>
+<ul>
+  <li><span class="skill-cat">Quantium Data Analytics Job Simulation, Forage (Mar 2026):</span> customer segmentation and uplift analysis in Python, delivered as business recommendations rather than technical output.</li>
+  <li><span class="skill-cat">Commonwealth Bank Introduction to Data Science, Forage (Mar 2026):</span> data analysis and pattern recognition in an enterprise context, focused on communicating findings to non-technical decision-makers.</li>
+  <li><span class="skill-cat">ANZ Data Analytics &amp; Visualisation, Forage (Apr 2026):</span> transaction-data analysis and reporting in a regulated environment, with emphasis on accuracy and data integrity.</li>
+  <li><span class="skill-cat">Kaggle Machine Learning Competitions (2024 &ndash; present):</span> ongoing classification, regression and NLP work on real-world datasets outside coursework; best finish top 7% of roughly 3,500 entrants.</li>
+</ul>
+
+<h2>Leadership &amp; Work Experience</h2>
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">Universal Store, Sales Associate</span>
+    <span class="meta">Sep 2023 &ndash; Present</span>
+  </div>
+  <ul>
+    <li>Two and a half years on a high-volume retail floor, consistently exceeding individual sales targets by 15 to 20 percent.</li>
+    <li>Trained and mentored six new team members and was trusted with keyholder and store-opening duties within the first year.</li>
+    <li>Built rapport quickly across a diverse customer base, developing the clear, adaptable communication that technical study alone does not build.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">Rivers, Sales Associate</span>
+    <span class="meta">Jun &ndash; Dec 2022</span>
+  </div>
+  <ul>
+    <li>Customer-facing sales role during the first semester of university, balancing work alongside a full study load.</li>
+  </ul>
+</div>
+
+<h2>Leadership &amp; Extracurricular</h2>
+<ul>
+  <li><span class="skill-cat">QUT Data Science Club, Committee Member (2024 &ndash; present):</span> help run technical workshops and events, including a student data hackathon for around 40 participants.</li>
+  <li><span class="skill-cat">Volunteer tutor, quantitative units:</span> support first-year students with statistics and programming, translating difficult concepts into plain language.</li>
+</ul>
+
+</body>
+</html>

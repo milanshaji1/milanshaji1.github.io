@@ -1,0 +1,57 @@
+name: Build and deploy
+
+# Push to main -> resume/resume.html regenerates the PDF, the site
+# rebuilds with it, and the result deploys to GitHub Pages. Editing
+# the resume and pushing is the entire workflow — no local build step.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Ensure Chrome is available (resume -> PDF)
+        run: |
+          if ! command -v google-chrome-stable >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
+          fi
+          google-chrome-stable --version
+
+      - run: npm ci
+
+      # scripts/build-resume.mjs runs first, so a broken resume (wrong
+      # page count) fails the build instead of shipping a stale/bad PDF.
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

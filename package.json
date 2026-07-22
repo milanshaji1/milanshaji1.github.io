@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "resume": "node scripts/build-resume.mjs",
+    "build": "node scripts/build-resume.mjs && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
