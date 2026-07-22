@@ -49,7 +49,7 @@ export function ResumeProvider({ children }) {
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               <header style={bar}>
-                <span className="mono">milan shaji — resume</span>
+                <span className="mono">milan shaji · resume</span>
                 <span style={{ display: "flex", gap: 18, alignItems: "center" }}>
                   <a className="mono" href={PDF} download style={link}>
                     download ↓

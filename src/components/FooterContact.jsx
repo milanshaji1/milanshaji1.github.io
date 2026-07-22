@@ -106,7 +106,7 @@ export default function FooterContact() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="mono" style={{ marginTop: 40 }}>
-            every number on this site is a measured result — backtest, eval run, ci, or grade.
+            every number on this site is a measured result: backtest, eval run, ci, or grade.
           </p>
         </Reveal>
       </div>

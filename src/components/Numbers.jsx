@@ -6,7 +6,7 @@ export default function Numbers() {
     <section id="numbers" className="invert" style={wrap}>
       <div className="shell">
         <Reveal>
-          <p className="mono" style={{ marginBottom: 34 }}>the numbers — measured, not estimated</p>
+          <p className="mono" style={{ marginBottom: 34 }}>the numbers: measured, not estimated</p>
         </Reveal>
         <div style={grid}>
           {numbers.map((n, i) => (

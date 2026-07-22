@@ -119,10 +119,10 @@ export default function Hero({ booted }) {
           }}
         >
           <span style={marqueeText}>
-            {person.name} — {person.name} — {person.name} —&nbsp;
+            {person.name} · {person.name} · {person.name} ·&nbsp;
           </span>
           <span style={marqueeText}>
-            {person.name} — {person.name} — {person.name} —&nbsp;
+            {person.name} · {person.name} · {person.name} ·&nbsp;
           </span>
         </div>
 
