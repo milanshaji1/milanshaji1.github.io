@@ -36,6 +36,32 @@ export const statement = {
 
 export const works = [
   {
+    id: "market-pulse",
+    title: "Market Pulse",
+    caption: "2026 / full-stack + backtesting / validates its own signals",
+    hoverline: "1,550 scanned · 60 tests · honest baseline",
+    link: "https://github.com/milanshaji1/market-pulse",
+    linkLabel: "github.com/milanshaji1/market-pulse",
+    body: [
+      "A self-hosted market terminal that screens roughly 1,550 US stocks and the top 50 crypto every 60 seconds, aggregating six free no-key data sources into a transparent 1–5 rating and concrete entry-timing engine. Every score decomposes into the trend, momentum, quality, valuation and risk inputs that produced it. Node.js and vanilla JavaScript, one runtime dependency, no build step, installable to a phone home screen.",
+      "The point isn't the score, it's whether the score survives contact with reality. Backtesting and forward paper-trading engines — 60 automated tests, test-driven, with look-ahead-bias guards — replay the signals against ten years of history and a live S&P 500 benchmark. Building that harness surfaced three separate bugs that had inflated returns by thirty-plus points (survivorship bias, a hindsight-selected universe, stale entry pricing), and the corrected result is reported in the app itself: the signal set underperformed simply buying and holding the index. The most useful thing it does is tell you when not to trust it.",
+    ],
+    metrics: [
+      { value: 1550, suffix: "", label: "US stocks + 50 crypto, re-scanned every 60 seconds" },
+      { value: 60, suffix: "", label: "automated tests, test-first, with look-ahead-bias guards" },
+      { value: 3, suffix: "", label: "backtest-inflating bugs found and fixed: survivorship, hindsight, stale pricing" },
+      { raw: "underperformed", label: "the honest result — signals lost to SPY buy-and-hold, reported in-app not buried" },
+    ],
+    stack: "node.js · vanilla js · express · finnhub · fred · tradingview · github",
+    shots: [
+      {
+        src: "./media/market-pulse-dashboard.jpg",
+        alt: "Market Pulse dashboard: an amber oscilloscope of the live S&P 500, a macro index strip, and the Opportunity Radar ranking stocks 1–5 by momentum score across ~1,550 scanned names",
+        caption: "the live terminal: S&P oscilloscope, macro strip, and the Opportunity Radar over ~1,550 scanned names",
+      },
+    ],
+  },
+  {
     id: "gridpulse",
     title: "GridPulse",
     caption: "2026 / ML + LLM pipeline / live: publishes daily, unattended",
@@ -146,6 +172,7 @@ export const numbers = [
   { value: 30, suffix: "/30", label: "llm evals green" },
   { value: 94, suffix: "%", label: "cnn test accuracy" },
   { value: 38, suffix: "", label: "data-quality gates" },
+  { value: 60, suffix: "", label: "tests, market pulse" },
   { prefix: "top ", value: 7, suffix: "%", label: "kaggle, ~3,500 entrants" },
 ];
 
@@ -168,7 +195,7 @@ export const info = {
     ["delivery", "requirements analysis · data validation · documentation · business cases · stakeholder communication"],
   ],
   log: [
-    ["2026", "GridPulse, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
+    ["2026", "Market Pulse, GridPulse, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
     ["2022–2026", "QUT dual degree: Data Science | Business (Ent. & Innovation), Distinction for the IAB303 capstone"],
     ["2024–now", "QUT Data Science Club committee · volunteer tutor · Kaggle (best: top 7% of ~3,500)"],
     ["2023–now", "Universal Store, sales associate"],
