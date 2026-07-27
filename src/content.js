@@ -1,5 +1,5 @@
 /* Everything the site says, in one place.
-   Every figure is a measured result — backtest, eval run, CI, or grade. */
+   Every figure is a measured result: backtest, eval run, CI, or grade. */
 
 export const person = {
   name: "Milan Shaji",
@@ -20,7 +20,7 @@ export const person = {
 };
 
 /* Boot sequence: the site re-checks its own published figures before
-   showing them — the same gate GridPulse runs before a brief publishes. */
+   showing them, the same gate GridPulse runs before a brief publishes. */
 export const claims = [
   { n: "71%", label: "spike-day recall", src: "5-mo backtest" },
   { n: "531/531", label: "pinches caught", src: "1,847 frames" },
@@ -29,7 +29,7 @@ export const claims = [
 ];
 
 export const statement = {
-  main: "I build data & AI systems that verify their own numbers. Live pipelines, honest baselines, no nonsense.",
+  main: "I build data & AI systems that verify their own numbers, on live pipelines and honest baselines.",
   aside:
     "Half data science, half business: the model matters because of the decision it improves.",
 };
@@ -44,13 +44,13 @@ export const works = [
     linkLabel: "github.com/milanshaji1/market-pulse",
     body: [
       "A self-hosted market terminal that screens roughly 1,550 US stocks and the top 50 crypto every 60 seconds, aggregating six free no-key data sources into a transparent 1–5 rating and concrete entry-timing engine. Every score decomposes into the trend, momentum, quality, valuation and risk inputs that produced it. Node.js and vanilla JavaScript, one runtime dependency, no build step, installable to a phone home screen.",
-      "The point isn't the score, it's whether the score survives contact with reality. Backtesting and forward paper-trading engines — 60 automated tests, test-driven, with look-ahead-bias guards — replay the signals against ten years of history and a live S&P 500 benchmark. Building that harness surfaced three separate bugs that had inflated returns by thirty-plus points (survivorship bias, a hindsight-selected universe, stale entry pricing), and the corrected result is reported in the app itself: the signal set underperformed simply buying and holding the index. The most useful thing it does is tell you when not to trust it.",
+      "What matters is whether the score survives contact with reality. Backtesting and forward paper-trading engines (60 automated tests, test-driven, with look-ahead-bias guards) replay the signals against ten years of history and a live S&P 500 benchmark. Building that harness surfaced three separate bugs that had inflated returns by thirty-plus points: survivorship bias, a hindsight-selected universe, and stale entry pricing. The corrected result is reported in the app itself, on screen rather than buried: the signal set underperformed simply buying and holding the index.",
     ],
     metrics: [
       { value: 1550, suffix: "", label: "US stocks + 50 crypto, re-scanned every 60 seconds" },
       { value: 60, suffix: "", label: "automated tests, test-first, with look-ahead-bias guards" },
       { value: 3, suffix: "", label: "backtest-inflating bugs found and fixed: survivorship, hindsight, stale pricing" },
-      { raw: "underperformed", label: "the honest result — signals lost to SPY buy-and-hold, reported in-app not buried" },
+      { raw: "underperformed", label: "the honest result: signals lost to SPY buy-and-hold, reported in-app" },
     ],
     stack: "node.js · vanilla js · express · finnhub · fred · tradingview · github",
     shots: [
@@ -105,7 +105,7 @@ export const works = [
     link: "https://github.com/milanshaji1/gesture-canvas",
     linkLabel: "github.com/milanshaji1/gesture-canvas",
     body: [
-      "Hand-tracked generative visuals in TouchDesigner, directed in plain English. MediaPipe webcam tracking drives visuals composited over the live camera feed: a shape rides the thumb–index pinch point, scales with hand aperture, and hides the moment tracking drops. The node network is generated from reproducible Python, not wired by hand.",
+      "Hand-tracked generative visuals in TouchDesigner, directed in plain English. MediaPipe webcam tracking drives visuals composited over the live camera feed: a shape rides the thumb–index pinch point, scales with hand aperture, and hides the moment tracking drops. The node network is generated from reproducible Python rather than wired by hand.",
       "A language layer directs the scene, but nothing a model says touches the render unchecked: every Claude response passes a strict JSON parameter contract, schema-validated field by field and rejected on any violation. That's GridPulse's verification discipline, applied to a system with no database to check against.",
     ],
     metrics: [
@@ -154,7 +154,7 @@ export const works = [
     link: null,
     linkLabel: "client work, stays off github",
     body: [
-      "Data lead on a four-person team delivering a working BI solution to a real industry client through QUT's IAB303 capstone. The client's pipeline was quietly unreliable and reporting burned a full working day per cycle.",
+      "Data lead on a four-person team delivering a working BI solution to a real industry client through QUT's IAB303 capstone. The client's pipeline was failing in ways nobody had caught, and reporting burned a full working day per cycle.",
       "We rebuilt the pipeline from scratch to process roughly 60,000 records dependably and shipped an executive dashboard that turned the reporting day into a live view refreshed in minutes. The client rated the work among the most useful they had received from a student team.",
     ],
     metrics: [
@@ -184,7 +184,7 @@ export const info = {
   ],
   habits: [
     "01. live beats finished: a system proves itself by running unattended.",
-    "02. verification is code, not vibes: no number ships unchecked.",
+    "02. verification is code: no number ships unchecked.",
     "03. start from the decision: the business half of the degree isn't decoration.",
   ],
   toolkit: [
