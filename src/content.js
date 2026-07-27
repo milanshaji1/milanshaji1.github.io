@@ -146,24 +146,6 @@ export const works = [
       },
     ],
   },
-  {
-    id: "bi-capstone",
-    title: "BI Capstone",
-    caption: "2024 / business intelligence, client delivery / graded distinction",
-    hoverline: "60,000 records · 1 day → minutes · distinction",
-    link: null,
-    linkLabel: "client work, stays off github",
-    body: [
-      "Data lead on a four-person team delivering a working BI solution to a real industry client through QUT's IAB303 capstone. The client's pipeline was failing in ways nobody had caught, and reporting burned a full working day per cycle.",
-      "We rebuilt the pipeline from scratch to process roughly 60,000 records dependably and shipped an executive dashboard that turned the reporting day into a live view refreshed in minutes. The client rated the work among the most useful they had received from a student team.",
-    ],
-    metrics: [
-      { value: 60000, suffix: "", label: "records processed reliably" },
-      { raw: "1 day → min", label: "reporting cycle, manual to live" },
-      { raw: "Distinction", label: "QUT IAB303, graded" },
-    ],
-    stack: "requirements analysis · etl rebuild · dashboard design · client delivery",
-  },
 ];
 
 export const numbers = [
@@ -196,7 +178,7 @@ export const info = {
   ],
   log: [
     ["2026", "Market Pulse, GridPulse, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
-    ["2022–2026", "QUT dual degree: Data Science | Business (Ent. & Innovation), Distinction for the IAB303 capstone"],
+    ["2022–2026", "QUT dual degree: Data Science | Business (Ent. & Innovation)"],
     ["2024–now", "QUT Data Science Club committee · volunteer tutor · Kaggle (best: top 7% of ~3,500)"],
     ["2023–now", "Universal Store, sales associate"],
     ["2022", "Rivers, sales associate"],
