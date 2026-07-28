@@ -20,7 +20,7 @@ export const person = {
 };
 
 /* Boot sequence: the site re-checks its own published figures before
-   showing them, the same gate GridPulse runs before a brief publishes. */
+   showing them, the same gate Dispatch runs before a brief publishes. */
 export const claims = [
   { n: "71%", label: "spike-day recall", src: "5-mo backtest" },
   { n: "531/531", label: "pinches caught", src: "1,847 frames" },
@@ -36,12 +36,12 @@ export const statement = {
 
 export const works = [
   {
-    id: "market-pulse",
-    title: "Market Pulse",
-    caption: "2026 / full-stack + backtesting / validates its own signals",
+    id: "paper-trail",
+    title: "PaperTrail",
+    caption: "2026 / stock screener + backtesting / validates its own signals",
     hoverline: "1,550 scanned · 60 tests · honest baseline",
-    link: "https://github.com/milanshaji1/market-pulse",
-    linkLabel: "github.com/milanshaji1/market-pulse",
+    link: "https://github.com/milanshaji1/paper-trail",
+    linkLabel: "github.com/milanshaji1/paper-trail",
     body: [
       "A self-hosted market terminal that screens roughly 1,550 US stocks and the top 50 crypto every 60 seconds, aggregating six free no-key data sources into a transparent 1–5 rating and concrete entry-timing engine. Every score decomposes into the trend, momentum, quality, valuation and risk inputs that produced it. Node.js and vanilla JavaScript, one runtime dependency, no build step, installable to a phone home screen.",
       "What matters is whether the score survives contact with reality. Backtesting and forward paper-trading engines (60 automated tests, test-driven, with look-ahead-bias guards) replay the signals against ten years of history and a live S&P 500 benchmark. Building that harness surfaced three separate bugs that had inflated returns by thirty-plus points: survivorship bias, a hindsight-selected universe, and stale entry pricing. The corrected result is reported in the app itself, on screen rather than buried: the signal set underperformed simply buying and holding the index.",
@@ -55,21 +55,21 @@ export const works = [
     stack: "node.js · vanilla js · express · finnhub · fred · tradingview · github",
     shots: [
       {
-        src: "./media/market-pulse-dashboard.jpg",
-        alt: "Market Pulse dashboard: an amber oscilloscope of the live S&P 500, a macro index strip, and the Opportunity Radar ranking stocks 1–5 by momentum score across ~1,550 scanned names",
+        src: "./media/paper-trail-dashboard.jpg",
+        alt: "PaperTrail dashboard: an amber oscilloscope of the live S&P 500, a macro index strip, and the Opportunity Radar ranking stocks 1–5 by momentum score across ~1,550 scanned names",
         caption: "the live terminal: S&P oscilloscope, macro strip, and the Opportunity Radar over ~1,550 scanned names",
       },
     ],
   },
   {
-    id: "gridpulse",
-    title: "GridPulse",
-    caption: "2026 / ML + LLM pipeline / live: publishes daily, unattended",
+    id: "dispatch",
+    title: "Dispatch",
+    caption: "2026 / energy-market ML + LLM / publishes daily, unattended",
     hoverline: "71% recall · 30/30 evals · ~$0.07/brief",
-    link: "https://github.com/milanshaji1/gridpulse",
-    linkLabel: "github.com/milanshaji1/gridpulse",
+    link: "https://github.com/milanshaji1/dispatch",
+    linkLabel: "github.com/milanshaji1/dispatch",
     body: [
-      "An AI market analyst for Australia's electricity grid. Spot prices idle for days, then blow past $300/MWh with little warning. GridPulse ingests over a million rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.",
+      "An AI market analyst for Australia's electricity grid. Spot prices idle for days, then blow past $300/MWh with little warning. Dispatch ingests over a million rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.",
       "A gradient-boosted early-warning model flags likely spike days, benchmarked with rolling-origin backtests. An LLM analyst writes the daily briefing: 21–25 cited figures, each re-verified against source data before the brief may publish. Runs unattended every morning on GitHub Actions behind a public Streamlit dashboard.",
     ],
     metrics: [
@@ -81,17 +81,17 @@ export const works = [
     stack: "python · duckdb · gradient boosting · claude api · github actions · streamlit",
     shots: [
       {
-        src: "./media/gridpulse-dashboard.jpg",
-        alt: "GridPulse dashboard showing tomorrow's spike risk per NEM region and 60 days of daily average spot prices",
+        src: "./media/dispatch-dashboard.jpg",
+        alt: "Dispatch dashboard showing tomorrow's spike risk per NEM region and 60 days of daily average spot prices",
         caption: "the live dashboard: spike risk per region, 60 days of real AEMO prices",
       },
       {
-        src: "./media/gridpulse-brief.jpg",
-        alt: "A published GridPulse daily brief; cited figures are highlighted where they were re-verified against the database",
+        src: "./media/dispatch-brief.jpg",
+        alt: "A published Dispatch daily brief; cited figures are highlighted where they were re-verified against the database",
         caption: "a published brief: every highlighted figure re-checked against the database first",
       },
       {
-        src: "./media/gridpulse-evals.jpg",
+        src: "./media/dispatch-evals.jpg",
         alt: "Golden-set evaluation table showing truth versus model answer with all rows correct, and backtest results JSON",
         caption: "the eval run and backtest output the headline numbers come from",
       },
@@ -106,7 +106,7 @@ export const works = [
     linkLabel: "github.com/milanshaji1/gesture-canvas",
     body: [
       "Hand-tracked generative visuals in TouchDesigner, directed in plain English. MediaPipe webcam tracking drives visuals composited over the live camera feed: a shape rides the thumb–index pinch point, scales with hand aperture, and hides the moment tracking drops. The node network is generated from reproducible Python rather than wired by hand.",
-      "A language layer directs the scene, but nothing a model says touches the render unchecked: every Claude response passes a strict JSON parameter contract, schema-validated field by field and rejected on any violation. That's GridPulse's verification discipline, applied to a system with no database to check against.",
+      "A language layer directs the scene, but nothing a model says touches the render unchecked: every Claude response passes a strict JSON parameter contract, schema-validated field by field and rejected on any violation. That's Dispatch's verification discipline, applied to a system with no database to check against.",
     ],
     metrics: [
       { value: 531, suffix: "/531", label: "true pinches caught, calibrated on 1,847 recorded frames" },
@@ -154,7 +154,7 @@ export const numbers = [
   { value: 30, suffix: "/30", label: "llm evals green" },
   { value: 94, suffix: "%", label: "cnn test accuracy" },
   { value: 38, suffix: "", label: "data-quality gates" },
-  { value: 60, suffix: "", label: "tests, market pulse" },
+  { value: 60, suffix: "", label: "tests, PaperTrail" },
   { prefix: "top ", value: 7, suffix: "%", label: "kaggle, ~3,500 entrants" },
 ];
 
@@ -177,7 +177,7 @@ export const info = {
     ["delivery", "requirements analysis · data validation · documentation · business cases · stakeholder communication"],
   ],
   log: [
-    ["2026", "Market Pulse, GridPulse, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
+    ["2026", "PaperTrail, Dispatch, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
     ["2022–2026", "QUT dual degree: Data Science | Business (Ent. & Innovation)"],
     ["2024–now", "QUT Data Science Club committee · volunteer tutor · Kaggle (best: top 7% of ~3,500)"],
     ["2023–now", "Universal Store, sales associate"],

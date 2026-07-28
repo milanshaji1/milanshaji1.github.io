@@ -84,20 +84,20 @@
 
 <div class="entry">
   <div class="row">
-    <span class="entry-title">Market Pulse &mdash; Live Market Dashboard &amp; Self-Validating Trading Engine</span>
-    <span class="meta">github.com/milanshaji1/market-pulse&nbsp;&nbsp;2026</span>
+    <span class="entry-title">PaperTrail &mdash; Live Stock Screener &amp; Backtesting Engine</span>
+    <span class="meta">github.com/milanshaji1/paper-trail&nbsp;&nbsp;2026</span>
   </div>
   <ul>
     <li>Built a full-stack live market terminal (Node.js, vanilla JavaScript, one runtime dependency) that screens roughly 1,550 US stocks and the top 50 cryptocurrencies every 60 seconds, aggregating six free no-key data sources into a transparent 1&ndash;5 rating and entry-timing engine where every score decomposes into its trend, momentum, quality, valuation and risk inputs.</li>
     <li>Engineered backtesting and forward paper-trading engines (60 automated tests, test-driven, including look-ahead-bias guards that prove a decision at day <em>t</em> cannot see day <em>t</em>+1) to validate the signals against ten years of history and a live S&amp;P 500 benchmark.</li>
-    <li>Caught and fixed three bugs that had inflated backtest returns by 30+ percentage points (survivorship bias, hindsight universe selection, stale pricing), then reported the corrected finding honestly: the signal set underperformed buying and holding the index.</li>
+    <li>Caught and fixed three bugs that had inflated backtest returns by 30+ percentage points (survivorship bias, hindsight universe selection, stale pricing), then reported the corrected finding: the signal set underperformed buying and holding the index.</li>
   </ul>
 </div>
 
 <div class="entry">
   <div class="row">
-    <span class="entry-title">GridPulse &mdash; AI Market Analyst for Australia&rsquo;s Electricity Grid</span>
-    <span class="meta">github.com/milanshaji1/gridpulse&nbsp;&nbsp;2026</span>
+    <span class="entry-title">Dispatch &mdash; AI Market Analyst for Australia&rsquo;s Electricity Grid</span>
+    <span class="meta">github.com/milanshaji1/dispatch&nbsp;&nbsp;2026</span>
   </div>
   <ul>
     <li>Built an end-to-end ML and GenAI system on live energy-market data: ingests 1M+ rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.</li>
@@ -109,13 +109,13 @@
 
 <div class="entry">
   <div class="row">
-    <span class="entry-title">Gesture Canvas &mdash; Real-Time Hand-Tracked Visuals with a Language-Directed Scene Controller</span>
+    <span class="entry-title">Gesture Canvas &mdash; Hand-Tracked Visuals with an LLM Scene Director</span>
     <span class="meta">2026</span>
   </div>
   <div class="entry-sub">github.com/milanshaji1/gesture-canvas</div>
   <ul>
     <li>Built a real-time computer-vision interaction system in TouchDesigner: MediaPipe webcam hand tracking drives generative visuals composited over the live camera feed &mdash; a shape tracks the thumb&ndash;index pinch point, scales with hand aperture, and hides when tracking drops &mdash; with the entire node network generated from reproducible Python rather than hand-built.</li>
-    <li>Engineered a natural-language scene-direction layer (Claude API) behind a strict JSON parameter contract: every model response is schema-validated field-by-field and rejected before it can touch the live render &mdash; the same verification-gate discipline as GridPulse, generalised to a real-time system with no database to check against.</li>
+    <li>Engineered a natural-language scene-direction layer (Claude API) behind a strict JSON parameter contract: every model response is schema-validated field-by-field and rejected before it can touch the live render &mdash; the same verification-gate discipline as Dispatch, generalised to a real-time system with no database to check against.</li>
     <li>Calibrated the pinch-gesture detector on 1,847 frames of recorded hand data: validated thresholds catch 531/531 true pinches with zero false positives across 5,400+ open-hand and no-hand frames; 31 automated tests (schema gate, mocked-API contract, verified session recaps) run in CI.</li>
   </ul>
 </div>

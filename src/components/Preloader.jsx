@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { claims } from "../content.js";
 
 /* The site checks its own numbers before it shows them — the same gate
-   GridPulse runs before a brief is allowed to publish. Each figure
+   Dispatch runs before a brief is allowed to publish. Each figure
    scrambles, resolves, and locks with a check.
 
    Driven by timers, not requestAnimationFrame: rAF starves in hidden or
