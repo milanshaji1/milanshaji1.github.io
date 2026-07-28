@@ -100,7 +100,7 @@
     <span class="meta">github.com/milanshaji1/dispatch&nbsp;&nbsp;2026</span>
   </div>
   <ul>
-    <li>Built an end-to-end ML and GenAI system on live energy-market data: ingests 1M+ rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.</li>
+    <li>Built an end-to-end ML and GenAI system on live energy-market data: ingests 1M+ rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 44 automated tests, refreshed daily.</li>
     <li>Trained a gradient-boosted price-spike early-warning model achieving 71% recall of $300+/MWh spike days at a 20% alert budget in a five-month rolling-origin backtest, versus 58% for baseline methods.</li>
     <li>Engineered an LLM analyst agent whose daily market briefings cite 21&ndash;25 figures, each programmatically re-verified against source data before publication; scored 100% (30/30) on a golden-question evaluation set at $0.06&ndash;$0.12 per brief.</li>
     <li>Deployed as a fully automated daily pipeline (GitHub Actions) with a Streamlit dashboard; verified briefs publish unattended every morning.</li>
@@ -116,7 +116,7 @@
   <ul>
     <li>Built a real-time computer-vision interaction system in TouchDesigner: MediaPipe webcam hand tracking drives generative visuals composited over the live camera feed. A shape tracks the thumb&ndash;index pinch point, scales with hand aperture, and hides when tracking drops; the entire node network is generated from reproducible Python.</li>
     <li>Engineered a natural-language scene-direction layer (Claude API) behind a strict JSON parameter contract: every model response is schema-validated field-by-field and rejected before it can touch the live render. Applies the same verification-gate discipline as Dispatch, generalised to a real-time system with no database to check against.</li>
-    <li>Calibrated the pinch-gesture detector on 1,847 frames of recorded hand data: validated thresholds catch 531/531 true pinches with zero false positives across 5,400+ open-hand and no-hand frames; 31 automated tests (schema gate, mocked-API contract, verified session recaps) run in CI.</li>
+    <li>Calibrated the pinch-gesture detector on 1,847 frames of recorded hand data: validated thresholds catch 531/531 true pinches with zero false positives across 5,400+ open-hand and no-hand frames; 50 automated tests (schema gate, validator, mocked-API contract, verified session recaps, gesture maths) run in CI.</li>
   </ul>
 </div>
 

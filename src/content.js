@@ -25,7 +25,7 @@ export const claims = [
   { n: "71%", label: "spike-day recall", src: "5-mo backtest" },
   { n: "531/531", label: "pinches caught", src: "1,847 frames" },
   { n: "30/30", label: "llm evals green", src: "live run" },
-  { n: "38", label: "quality gates", src: "ci" },
+  { n: "44", label: "tests gating the pipeline", src: "ci" },
 ];
 
 export const statement = {
@@ -69,13 +69,13 @@ export const works = [
     link: "https://github.com/milanshaji1/dispatch",
     linkLabel: "github.com/milanshaji1/dispatch",
     body: [
-      "An AI market analyst for Australia's electricity grid. Spot prices idle for days, then blow past $300/MWh with little warning. Dispatch ingests over a million rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 38 automated data-quality tests, refreshed daily.",
+      "An AI market analyst for Australia's electricity grid. Spot prices idle for days, then blow past $300/MWh with little warning. Dispatch ingests over a million rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 44 automated tests, refreshed daily.",
       "A gradient-boosted early-warning model flags likely spike days, benchmarked with rolling-origin backtests. An LLM analyst writes the daily briefing: 21–25 cited figures, each re-verified against source data before the brief may publish. Runs unattended every morning on GitHub Actions behind a public Streamlit dashboard.",
     ],
     metrics: [
       { value: 71, suffix: "%", label: "spike-day recall @ 20% alert budget (baselines reached 58%)" },
       { value: 30, suffix: "/30", label: "golden-question evals, live run" },
-      { value: 38, suffix: "", label: "data-quality gates on every ingest" },
+      { value: 44, suffix: "", label: "tests gating every ingest: data quality, leakage, verification" },
       { raw: "$0.06–0.12", label: "cost per verified brief, across five measured runs" },
     ],
     stack: "python · duckdb · gradient boosting · claude api · github actions · streamlit",
@@ -100,8 +100,8 @@ export const works = [
   {
     id: "gesture-canvas",
     title: "Gesture Canvas",
-    caption: "2026 / computer vision, real-time / 31 tests green in ci",
-    hoverline: "531/531 pinches · 0 false positives · 31 tests",
+    caption: "2026 / computer vision, real-time / 50 tests green in ci",
+    hoverline: "531/531 pinches · 0 false positives · 50 tests",
     link: "https://github.com/milanshaji1/gesture-canvas",
     linkLabel: "github.com/milanshaji1/gesture-canvas",
     body: [
@@ -111,7 +111,7 @@ export const works = [
     metrics: [
       { value: 531, suffix: "/531", label: "true pinches caught, calibrated on 1,847 recorded frames" },
       { value: 0, suffix: "", label: "false positives across 5,400+ frames" },
-      { value: 31, suffix: "", label: "automated tests in CI" },
+      { value: 50, suffix: "", label: "automated tests in CI" },
     ],
     stack: "python · touchdesigner · mediapipe · claude api · pytest",
     shots: [
@@ -153,7 +153,7 @@ export const numbers = [
   { value: 531, suffix: "/531", label: "pinches caught" },
   { value: 30, suffix: "/30", label: "llm evals green" },
   { value: 94, suffix: "%", label: "cnn test accuracy" },
-  { value: 38, suffix: "", label: "data-quality gates" },
+  { value: 44, suffix: "", label: "tests gating the pipeline" },
   { value: 60, suffix: "", label: "tests, PaperTrail" },
   { prefix: "top ", value: 7, suffix: "%", label: "kaggle, ~3,500 entrants" },
 ];
