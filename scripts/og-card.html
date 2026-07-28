@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Source for public/og.png. Rendered by scripts/build-og.mjs at 1200x630,
+     which is the size LinkedIn, X and Slack all crop toward. Uses the site's
+     own tokens and self-hosted faces so the card matches the page it links to. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face {
+    font-family: "Archivo";
+    src: url("../src/fonts/archivo-300-latin.woff2") format("woff2");
+    font-weight: 300; font-display: block;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("../src/fonts/jetbrains-mono-400-latin.woff2") format("woff2");
+    font-weight: 400; font-display: block;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    background: #101112; color: #e7e4dd;
+    font-family: "Archivo", system-ui, sans-serif; font-weight: 300;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 68px 76px;
+    position: relative;
+  }
+  /* the site's hairline viewport frame */
+  .frame {
+    position: absolute; inset: 26px; border: 1px solid #2a2b2e; pointer-events: none;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 17px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #8a877f;
+  }
+  h1 { font-size: 92px; line-height: 1.02; letter-spacing: -0.025em; }
+  .role { font-size: 40px; line-height: 1.25; color: #e7e4dd; margin-top: 18px; }
+  .role em { font-style: normal; color: #8a877f; }
+  .rule { height: 1px; background: #2a2b2e; margin: 34px 0 30px; }
+  .stats { display: flex; gap: 58px; }
+  .stat .n {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 40px; color: #e7e4dd; font-variant-numeric: tabular-nums;
+  }
+  .stat .l {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 15px; letter-spacing: 0.08em; color: #8a877f; margin-top: 8px;
+  }
+  .foot {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 18px; color: #8a877f; letter-spacing: 0.04em;
+  }
+  .foot .site { color: #e7e4dd; }
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+
+  <div>
+    <div class="eyebrow">Data &amp; AI systems</div>
+    <h1>Milan Shaji</h1>
+    <div class="role">Live ML and AI systems that <em>verify their own numbers.</em></div>
+  </div>
+
+  <div>
+    <div class="rule"></div>
+    <div class="stats">
+      <div class="stat"><div class="n">71%</div><div class="l">SPIKE-DAY RECALL</div></div>
+      <div class="stat"><div class="n">30/30</div><div class="l">LLM EVALS GREEN</div></div>
+      <div class="stat"><div class="n">531/531</div><div class="l">PINCHES CAUGHT</div></div>
+      <div class="stat"><div class="n">1,550</div><div class="l">STOCKS SCANNED / 60s</div></div>
+    </div>
+    <div class="rule"></div>
+    <div class="foot">
+      <span class="site">milanshaji.com</span>
+      <span>QUT Data Science + Business &middot; available Feb 2027</span>
+    </div>
+  </div>
+</body>
+</html>
