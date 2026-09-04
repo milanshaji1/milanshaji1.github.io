@@ -7,7 +7,7 @@ export const person = {
   email: "milan.s.shaji@gmail.com",
   github: "https://github.com/milanshaji1",
   linkedin: "https://linkedin.com/in/milan-shaji",
-  relocation: "available for relocation in Australia",
+  badgeText: "Explore my work",
   available: "available february 2027",
   blurb: [
     "Final-year student of",

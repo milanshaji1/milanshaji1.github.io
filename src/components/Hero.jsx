@@ -107,12 +107,12 @@ export default function Hero({ booted }) {
       {/* giant name marquee (Snellenberg) */}
       <motion.div
         style={marqueeWrap}
-        aria-hidden="true"
         initial={motionOK ? { opacity: 0, y: 40 } : false}
         animate={show ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
       >
         <div
+          aria-hidden="true"
           style={{
             ...marqueeTrack,
             animation: motionOK ? "marquee-x 28s linear infinite" : "none",
@@ -127,8 +127,14 @@ export default function Hero({ booted }) {
         </div>
 
         {/* rotating location badge — solid disc, Snellenberg-style */}
-        <div style={badge}>
+        <a
+          href="#work"
+          style={badge}
+          aria-label={person.badgeText}
+          title="View recent work"
+        >
           <svg
+            aria-hidden="true"
             viewBox="0 0 100 100"
             style={{
               width: "100%",
@@ -141,12 +147,12 @@ export default function Hero({ booted }) {
             </defs>
             <text style={{ fontSize: 8.6, letterSpacing: 1.7, fill: "var(--bg)", fontFamily: "var(--font-mono)" }}>
               <textPath href="#badge-circle" textLength="220" lengthAdjust="spacing">
-                {person.relocation} ·
+                {person.badgeText} · {person.badgeText} ·
               </textPath>
             </text>
           </svg>
           <span style={badgeArrow} aria-hidden="true">↓</span>
-        </div>
+        </a>
       </motion.div>
     </section>
   );
