@@ -82,3 +82,5 @@ Disable JavaScript when checking the production build: content and final metric
 values should be visible, projects should expand, and the Resume links should
 open the PDF directly. Motion, saved preferences, and the live clock are enabled
 after hydration, keeping server and initial browser markup identical.
+The original opening verification sequence then runs when motion is enabled;
+it does not obstruct the static page when JavaScript is unavailable.

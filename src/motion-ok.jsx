@@ -8,7 +8,7 @@ const Ctx = createContext(true);
 
 export function MotionOKProvider({ children }) {
   // The server and first browser render agree: content is already visible.
-  // Enhance it with motion only after hydration, without a blocking curtain.
+  // Enable the opening sequence and other motion only after hydration.
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const prefersReduced = useReducedMotion();

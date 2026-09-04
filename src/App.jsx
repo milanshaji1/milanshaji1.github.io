@@ -14,7 +14,8 @@ import FooterContact from "./components/FooterContact.jsx";
 
 export default function App() {
   const motionOK = useMotionOK();
-  const [booted, setBooted] = useState(!motionOK);
+  // Hydration temporarily disables motion; that does not mean the intro ran.
+  const [booted, setBooted] = useState(false);
   const onBootDone = useCallback(() => setBooted(true), []);
 
   /* lets pure-CSS animations (grain drift) key off the motion gate */
@@ -39,7 +40,7 @@ export default function App() {
 
   return (
     <ResumeProvider>
-      <AnimatePresence>{!booted && <Preloader onDone={onBootDone} />}</AnimatePresence>
+      <AnimatePresence>{motionOK && !booted && <Preloader onDone={onBootDone} />}</AnimatePresence>
       <div className="frame" aria-hidden="true" />
       <p className="frame-copyright mono">© milan shaji</p>
       <Toggles />
