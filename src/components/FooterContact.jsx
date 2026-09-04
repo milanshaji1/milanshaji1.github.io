@@ -6,18 +6,19 @@ import { useResume } from "./ResumeViewer.jsx";
 /* Snellenberg's footer, faithfully: huge invitation, magnetic blue
    pill + email pill on a hairline, then VERSION / LOCAL TIME / SOCIALS. */
 function Clock() {
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState(null);
   useEffect(() => {
+    setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
-  const t = now.toLocaleTimeString("en-AU", {
+  const t = now?.toLocaleTimeString("en-AU", {
     hour12: true,
     hour: "2-digit",
     minute: "2-digit",
     timeZone: "Australia/Brisbane",
   });
-  return <span>{t.toUpperCase()} AEST</span>;
+  return <span>{t ? `${t.toUpperCase()} AEST` : "Brisbane · AEST"}</span>;
 }
 
 export default function FooterContact() {
@@ -95,7 +96,7 @@ export default function FooterContact() {
                   style={social}
                   onClick={(e) => {
                     e.preventDefault();
-                    openResume();
+                    openResume(e.currentTarget);
                   }}
                 >
                   Resume

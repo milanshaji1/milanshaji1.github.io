@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "resume": "node scripts/build-resume.mjs",
-    "build": "node scripts/build-resume.mjs && node scripts/build-og.mjs && vite build",
+    "build": "node scripts/build-resume.mjs && node scripts/build-og.mjs && npm run build:site",
+    "build:site": "vite build && node scripts/prerender.mjs && node --test scripts/check-html.mjs",
     "preview": "vite preview",
     "og": "node scripts/build-og.mjs"
   },

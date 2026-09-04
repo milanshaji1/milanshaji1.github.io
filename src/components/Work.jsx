@@ -37,16 +37,17 @@ export default function Work() {
             return (
               <Reveal key={w.id}>
                 <article style={row}>
-                  <h3>
-                    <button
+                  <details name="portfolio-project" open={isOpen} onToggle={(e) => {
+                    if (e.currentTarget.open) setOpen(w.id);
+                    else setOpen((current) => current === w.id ? null : current);
+                  }}>
+                    <summary
                       className="work-rowhead"
-                      aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : w.id)}
                       onPointerEnter={() => setHover(w.id)}
                       onPointerLeave={() => setHover(null)}
                       onPointerMove={onMove}
                     >
-                      <span style={{ display: "block", minWidth: 0 }}>
+                      <h3 style={{ display: "block", minWidth: 0 }}>
                         <motion.span
                           style={rowTitle}
                           animate={motionOK && hover === w.id ? { x: 16 } : { x: 0 }}
@@ -55,51 +56,46 @@ export default function Work() {
                           {w.title}
                         </motion.span>
                         <span className="mono" style={rowCaption}>{w.caption}</span>
-                      </span>
-                      <span style={rowPlus} aria-hidden="true">{isOpen ? "–" : "+"}</span>
-                    </button>
-                  </h3>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="detail"
-                        initial={motionOK ? { height: 0, opacity: 0 } : { height: "auto", opacity: 1 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={motionOK ? { height: 0, opacity: 0 } : undefined}
-                        transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-                        style={{ overflow: "hidden" }}
-                      >
-                        <div className="work-detail">
-                          <div style={detailCopy}>
-                            {w.body.map((p, i) => (
-                              <p key={i} style={para}>{p}</p>
-                            ))}
-                            <p className="mono" style={{ marginTop: 14 }}>{w.stack}</p>
-                            {w.link ? (
-                              <a href={w.link} rel="noopener" style={ghLink}>
-                                {w.linkLabel} →
-                              </a>
-                            ) : (
-                              <span className="mono" style={{ display: "inline-block", marginTop: 16 }}>
-                                {w.linkLabel}
-                              </span>
-                            )}
-                          </div>
-                          <ul style={metricList}>
-                            {w.metrics.map((m, i) => (
-                              <li key={i} style={metricItem}>
-                                <span style={metricValue}>
-                                  {"raw" in m ? m.raw : <Counter value={m.value} suffix={m.suffix} />}
-                                </span>
-                                <span className="mono" style={{ letterSpacing: "0.04em" }}>{m.label}</span>
-                              </li>
-                            ))}
-                          </ul>
+                      </h3>
+                      <span className="work-plus" style={rowPlus} aria-hidden="true" />
+                    </summary>
+                    <motion.div
+                      key="detail"
+                      initial={false}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <div className="work-detail">
+                        <div style={detailCopy}>
+                          {w.body.map((p, i) => (
+                            <p key={i} style={para}>{p}</p>
+                          ))}
+                          <p className="mono" style={{ marginTop: 14 }}>{w.stack}</p>
+                          {w.link ? (
+                            <a href={w.link} rel="noopener" style={ghLink}>
+                              {w.linkLabel} →
+                            </a>
+                          ) : (
+                            <span className="mono" style={{ display: "inline-block", marginTop: 16 }}>
+                              {w.linkLabel}
+                            </span>
+                          )}
                         </div>
-                        <Shots shots={w.shots} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        <ul style={metricList}>
+                          {w.metrics.map((m, i) => (
+                            <li key={i} style={metricItem}>
+                              <span style={metricValue}>
+                                {"raw" in m ? m.raw : <Counter value={m.value} suffix={m.suffix} />}
+                              </span>
+                              <span className="mono" style={{ letterSpacing: "0.04em" }}>{m.label}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <Shots shots={w.shots} />
+                    </motion.div>
+                  </details>
                 </article>
               </Reveal>
             );

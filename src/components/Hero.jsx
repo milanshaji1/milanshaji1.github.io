@@ -80,7 +80,7 @@ export default function Hero({ booted }) {
               style={navLink}
               onClick={(e) => {
                 e.preventDefault();
-                openResume();
+                openResume(e.currentTarget);
               }}
             >
               Resume

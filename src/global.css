@@ -361,7 +361,18 @@ html.motion-ok body::after {
   width: 100%;
   text-align: left;
   padding: 34px 0;
+  cursor: pointer;
+  list-style: none;
 }
+.work-rowhead::-webkit-details-marker { display: none; }
+.work-rowhead .mono { font-weight: 400; }
+.work-plus::before { content: "+"; }
+details[open] > .work-rowhead .work-plus::before { content: "–"; }
+
+/* Native modal semantics keep focus and interaction inside the résumé. */
+.resume-dialog:not([open]) { display: none; }
+.resume-dialog::backdrop { background: transparent; }
+.focus-sentinel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .info-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr);

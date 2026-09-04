@@ -3,17 +3,26 @@ import { useEffect, useState } from "react";
 /* Yamada's rotated side switches — both functional.
    Theme and typeface persist across visits. */
 export default function Toggles() {
-  const [theme, setTheme] = useState(() => localStorage.getItem("ms-theme") || "dark");
-  const [font, setFont] = useState(() => localStorage.getItem("ms-font") || "sans");
+  const [theme, setTheme] = useState("dark");
+  const [font, setFont] = useState("sans");
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    try {
+      setTheme(localStorage.getItem("ms-theme") || "dark");
+      setFont(localStorage.getItem("ms-font") || "sans");
+    } catch { /* Defaults still work when storage is unavailable. */ }
+    setLoaded(true);
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem("ms-theme", theme);
-  }, [theme]);
+    if (loaded) try { localStorage.setItem("ms-theme", theme); } catch {}
+  }, [theme, loaded]);
   useEffect(() => {
     document.documentElement.dataset.font = font;
-    localStorage.setItem("ms-font", font);
-  }, [font]);
+    if (loaded) try { localStorage.setItem("ms-font", font); } catch {}
+  }, [font, loaded]);
 
   return (
     <div className="side-toggles">

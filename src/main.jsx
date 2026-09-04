@@ -1,13 +1,16 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { MotionOKProvider } from "./motion-ok.jsx";
 import "./global.css";
 
-createRoot(document.getElementById("root")).render(
+const app = (
   <React.StrictMode>
     <MotionOKProvider>
       <App />
     </MotionOKProvider>
   </React.StrictMode>
 );
+const root = document.getElementById("root");
+if (root.hasChildNodes()) hydrateRoot(root, app);
+else createRoot(root).render(app);

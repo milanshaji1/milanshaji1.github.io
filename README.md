@@ -63,3 +63,22 @@ One-time repo setup:
 
 No manual build step or `dist/` push is needed after that: edit the resume,
 edit content, or edit code, push, and the live site updates itself.
+
+## Static HTML and résumé keyboard checks
+
+`npm run build:site` builds the browser bundle, prerenders the same React tree
+into `dist/index.html`, and checks that the initial response includes the
+portfolio and every project. `npm run build` also regenerates the résumé and
+social image, as it does in CI. Use `npm run preview` to review the built site;
+the Vite development server is client-rendered.
+
+The résumé uses a native modal dialog, an explicit Tab loop, and focus guards
+around the embedded PDF. To verify it, open Resume from both the header and
+footer, use Tab and Shift+Tab through the controls and PDF, then close with
+Escape, Close, and a backdrop click. Focus should return to the link used to
+open it, and the underlying page should remain inert while it is open.
+
+Disable JavaScript when checking the production build: content and final metric
+values should be visible, projects should expand, and the Resume links should
+open the PDF directly. Motion, saved preferences, and the live clock are enabled
+after hydration, keeping server and initial browser markup identical.
