@@ -140,8 +140,8 @@ export default function Hero({ booted }) {
               <path id="badge-circle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
             </defs>
             <text style={{ fontSize: 8.6, letterSpacing: 1.7, fill: "var(--bg)", fontFamily: "var(--font-mono)" }}>
-              <textPath href="#badge-circle">
-                {person.located} · {person.available} ·
+              <textPath href="#badge-circle" textLength="220" lengthAdjust="spacing">
+                {person.relocation} ·
               </textPath>
             </text>
           </svg>
