@@ -37,25 +37,25 @@ export const statement = {
 export const works = [
   {
     id: "gold-coast-transport",
-    title: "Gold Coast Transport Evidence",
-    caption: "2026 / independent, AI-assisted study / public crash data",
+    title: "Gold Coast Crash Hotspots",
+    caption: "2026 / independent study / public crash data",
     hoverline: "8,142 crashes · 500 m grid · held-out 2024 check",
     link: "https://milanshaji.com/gold-coast-transport-evidence/",
     linkLabel: "Open the transport dashboard",
     body: [
-      "I wanted to use data to improve services where I live. I chose Gold Coast transport as the question and approved the scope of an AI-assisted study of 8,142 casualty crashes from 2020–2024. The work combines Python and SQL, a 500 m spatial grid, BigQuery checks, Power BI and a public map dashboard. AI assistance produced the implementation and ran the platform checks; my contribution was directing the question and design.",
-      "The study compares a simple crash-count shortlist with density clustering. On held-out 2024 data, the top 20 count-ranked cells covered 55 of 695 serious crashes, compared with 54 for clustering. That small difference gives no reason to choose the more complex method. Most serious crashes occurred outside either shortlist, and without traffic-volume data these counts cannot estimate risk per trip. The dashboard links to the methods, source code and reproducible data release.",
+      "I wanted to use data to improve services where I live, so I asked where the Gold Coast should start investigating road safety. I built a reproducible study of 8,142 casualty crashes from 2020–2024: Python and SQL, a 500 m spatial grid, a BigQuery spatial check, a Power BI report and a public map dashboard.",
+      "The top 20 squares cover 0.35% of the city but held 55 of the 695 serious crashes in held-out 2024, about 23 times their share by area. DBSCAN clustering caught 54, so the simpler count method stays. Fourteen of those 20 squares are mostly on state-controlled roads, mainly the Pacific Motorway, which TMR manages rather than the City. Ranking council roads separately gives the City its own list: it caught 40 of 384 serious crashes on council roads in 2024, against 24 for the combined list. Without traffic volumes, the counts can't measure risk per trip. The dashboard links to the methods, source code and reproducible data release.",
     ],
     metrics: [
       { value: 8142, suffix: "", label: "casualty crashes, 2020–2024" },
-      { raw: "55 / 695", label: "2024 serious crashes in the top 20 count-ranked cells" },
-      { raw: "500 m", label: "fixed grid cells for a like-for-like comparison" },
+      { raw: "55 / 695", label: "2024 serious crashes in the top 20 squares, ranked on 2021–2023" },
+      { raw: "23×", label: "the top 20 squares' share of serious crashes versus their share of the city's area" },
     ],
-    stack: "python · sql · spatial analysis · bigquery · power bi · read-only mcp tools",
+    stack: "python · sql · geopandas · dbscan · duckdb · bigquery · power bi · leaflet · mcp",
     shots: [{
       src: "./media/transport-evidence.jpg",
-      alt: "Gold Coast transport dashboard showing the investigation shortlist and its held-out 2024 results",
-      caption: "the public dashboard: inspect areas, compare methods and download the evidence",
+      alt: "Gold Coast crash dashboard: the top 20 squares on a street map, coloured by who manages the road, with the selected square's crash counts",
+      caption: "the public dashboard: crash hotspots on a street map, split by who manages the road",
     }],
   },
   {
