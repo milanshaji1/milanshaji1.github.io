@@ -21,6 +21,7 @@ test('all project descriptions and links are available without JavaScript', () =
   }
   assert.match(html, /underperformed simply buying and holding the index/);
   assert.match(html, /A gradient-boosted early-warning model/);
-  assert.equal((html.match(/<details\b/g) || []).length, 4);
-  assert.equal((html.match(/<summary\b/g) || []).length, 4);
+  assert.ok(html.includes('https://milanshaji.com/gold-coast-transport-evidence/'));
+  assert.equal((html.match(/<details\b/g) || []).length, 5);
+  assert.equal((html.match(/<summary\b/g) || []).length, 5);
 });

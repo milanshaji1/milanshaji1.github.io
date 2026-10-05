@@ -15,7 +15,7 @@
   }
   h1 {
     font-size: 20pt;
-    font-weight: 800;
+    font-weight: 400;
     margin: 0 0 2pt 0;
     letter-spacing: 0.3pt;
   }
@@ -26,10 +26,10 @@
   }
   h2 {
     font-size: 10.6pt;
-    font-weight: 800;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.6pt;
-    border-bottom: 1.1pt solid #141414;
+
     padding-bottom: 2pt;
     margin: 6.5pt 0 4pt 0;
   }
@@ -43,13 +43,13 @@
     align-items: baseline;
     gap: 10pt;
   }
-  .entry-title { font-weight: 700; font-size: 10.3pt; }
+  .entry-title { font-weight: 400; font-size: 10.3pt; }
   .entry-sub { font-style: italic; font-size: 9.8pt; }
   .meta { font-size: 9.3pt; color: #333; white-space: nowrap; }
   .entry { margin-bottom: 4.5pt; break-inside: avoid; page-break-inside: avoid; }
   .entry:last-child { margin-bottom: 0; }
   h2 { break-after: avoid; page-break-after: avoid; }
-  .skill-cat { font-weight: 700; }
+  .skill-cat { font-weight: 400; }
 </style>
 </head>
 <body>
@@ -84,6 +84,19 @@
 
 <div class="entry">
   <div class="row">
+    <span class="entry-title">Gold Coast Transport Evidence — Independent AI-assisted Study</span>
+    <span class="meta">October 2026</span>
+  </div>
+  <div class="entry-sub"><a href="https://milanshaji.com/gold-coast-transport-evidence/">milanshaji.com/gold-coast-transport-evidence/</a></div>
+  <ul>
+    <li>Directed an independent, AI-assisted study of 8,142 casualty crashes from 2020–2024, selecting the transport question and approving a design covering Python and SQL, a 500 m spatial grid, BigQuery, Power BI and a map dashboard.</li>
+    <li>On held-out 2024 data, the top 20 areas covered 55 of 695 serious crashes using counts versus 54 using DBSCAN clustering, supporting retention of the simpler method.</li>
+  </ul>
+</div>
+
+
+<div class="entry">
+  <div class="row">
     <span class="entry-title">PaperTrail &mdash; Live Stock Screener &amp; Backtesting Engine</span>
     <span class="meta">github.com/milanshaji1/paper-trail&nbsp;&nbsp;2026</span>
   </div>
@@ -101,7 +114,7 @@
   </div>
   <ul>
     <li>Built an end-to-end ML and GenAI system on live energy-market data: ingests 1M+ rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 44 automated tests, refreshed daily.</li>
-    <li>Trained a gradient-boosted price-spike early-warning model achieving 71% recall of $300+/MWh spike days at a 20% alert budget in a five-month rolling-origin backtest, versus 58% for baseline methods.</li>
+    <li>Trained a gradient-boosted price-spike early-warning model achieving 71% recall of $300+/MWh spike days at a 20% alert budget in a six-month rolling-origin backtest (February–July 2026), versus 58% for baseline methods.</li>
     <li>Engineered an LLM analyst agent whose daily market briefings cite 21&ndash;25 figures, each programmatically re-verified against source data before publication; scored 100% (30/30) on a golden-question evaluation set at $0.06&ndash;$0.12 per brief.</li>
     <li>Deployed as a fully automated daily pipeline (GitHub Actions) with a Streamlit dashboard; verified briefs publish unattended every morning.</li>
   </ul>
@@ -114,9 +127,7 @@
   </div>
   <div class="entry-sub">github.com/milanshaji1/gesture-canvas</div>
   <ul>
-    <li>Built a real-time computer-vision interaction system in TouchDesigner: MediaPipe webcam hand tracking drives generative visuals composited over the live camera feed. A shape tracks the thumb&ndash;index pinch point, scales with hand aperture, and hides when tracking drops; the entire node network is generated from reproducible Python.</li>
-    <li>Engineered a natural-language scene-direction layer (Claude API) behind a strict JSON parameter contract: every model response is schema-validated field-by-field and rejected before it can touch the live render. Applies the same verification-gate discipline as Dispatch, generalised to a real-time system with no database to check against.</li>
-    <li>Calibrated the pinch-gesture detector on 1,847 frames of recorded hand data: validated thresholds catch 531/531 true pinches with zero false positives across 5,400+ open-hand and no-hand frames; 50 automated tests (schema gate, validator, mocked-API contract, verified session recaps, gesture maths) run in CI.</li>
+    <li>Built a webcam-based hand-tracking interface using MediaPipe and TouchDesigner, with schema validation preventing invalid LLM scene commands from reaching the live display. Validated 531/531 true pinches across 1,847 recorded frames, with zero false positives across 5,400+ open-hand and no-hand frames and 50 automated tests.</li>
   </ul>
 </div>
 
@@ -135,7 +146,7 @@
     <span class="meta">Sep 2023 &ndash; Present</span>
   </div>
   <ul>
-    <li>Two and a half years on a high-volume retail floor, exceeding individual sales targets by 15 to 20 percent.</li>
+    <li>Three years on a high-volume retail floor, exceeding individual sales targets by 15 to 20 percent.</li>
     <li>Trained and mentored six new team members and earned keyholder and store-opening responsibilities within the first year.</li>
     <li>Built rapport across a wide range of customers through daily face-to-face selling.</li>
   </ul>

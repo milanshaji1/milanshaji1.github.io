@@ -22,7 +22,7 @@ export const person = {
 /* Boot sequence: the site re-checks its own published figures before
    showing them, the same gate Dispatch runs before a brief publishes. */
 export const claims = [
-  { n: "71%", label: "spike-day recall", src: "5-mo backtest" },
+  { n: "71%", label: "spike-day recall", src: "6-mo backtest" },
   { n: "531/531", label: "pinches caught", src: "1,847 frames" },
   { n: "30/30", label: "llm evals green", src: "live run" },
   { n: "44", label: "tests gating the pipeline", src: "ci" },
@@ -35,6 +35,29 @@ export const statement = {
 };
 
 export const works = [
+  {
+    id: "gold-coast-transport",
+    title: "Gold Coast Transport Evidence",
+    caption: "2026 / independent, AI-assisted study / public crash data",
+    hoverline: "8,142 crashes · 500 m grid · held-out 2024 check",
+    link: "https://milanshaji.com/gold-coast-transport-evidence/",
+    linkLabel: "Open the transport dashboard",
+    body: [
+      "I wanted to use data to improve services where I live. I chose Gold Coast transport as the question and approved the scope of an AI-assisted study of 8,142 casualty crashes from 2020–2024. The work combines Python and SQL, a 500 m spatial grid, BigQuery checks, Power BI and a public map dashboard. AI assistance produced the implementation and ran the platform checks; my contribution was directing the question and design.",
+      "The study compares a simple crash-count shortlist with density clustering. On held-out 2024 data, the top 20 count-ranked cells covered 55 of 695 serious crashes, compared with 54 for clustering. That small difference gives no reason to choose the more complex method. Most serious crashes occurred outside either shortlist, and without traffic-volume data these counts cannot estimate risk per trip. The dashboard links to the methods, source code and reproducible data release.",
+    ],
+    metrics: [
+      { value: 8142, suffix: "", label: "casualty crashes, 2020–2024" },
+      { raw: "55 / 695", label: "2024 serious crashes in the top 20 count-ranked cells" },
+      { raw: "500 m", label: "fixed grid cells for a like-for-like comparison" },
+    ],
+    stack: "python · sql · spatial analysis · bigquery · power bi · read-only mcp tools",
+    shots: [{
+      src: "./media/transport-evidence.jpg",
+      alt: "Gold Coast transport dashboard showing the investigation shortlist and its held-out 2024 results",
+      caption: "the public dashboard: inspect areas, compare methods and download the evidence",
+    }],
+  },
   {
     id: "paper-trail",
     title: "PaperTrail",
@@ -149,7 +172,7 @@ export const works = [
 ];
 
 export const numbers = [
-  { value: 71, suffix: "%", label: "spike-day recall, 5-mo backtest" },
+  { value: 71, suffix: "%", label: "spike-day recall, 6-mo backtest" },
   { value: 531, suffix: "/531", label: "pinches caught" },
   { value: 30, suffix: "/30", label: "llm evals green" },
   { value: 94, suffix: "%", label: "cnn test accuracy" },
@@ -161,7 +184,7 @@ export const numbers = [
 export const info = {
   about: [
     "I'm finishing a dual degree at QUT (Bachelor of Data Science alongside a Bachelor of Business in Entrepreneurship & Innovation) because a technically perfect answer to the wrong question is still wrong.",
-    "Outside the degree: two and a half years on a high-volume retail floor (15–20% over target, trained six people, keyholder within the year), committee at the QUT Data Science Club, volunteer tutor for first-year statistics and programming.",
+    "Outside the degree: three years on a high-volume retail floor (15–20% over target, trained six people, keyholder within the year), committee at the QUT Data Science Club, volunteer tutor for first-year statistics and programming.",
     "Graduating late 2026. Looking for a 2027 graduate seat in data, analytics and AI.",
   ],
   habits: [
