@@ -43,7 +43,7 @@ export const works = [
     link: "https://milanshaji.com/gold-coast-transport-evidence/",
     linkLabel: "Open the transport dashboard",
     body: [
-      "I wanted to use data to improve services where I live, so I asked where the Gold Coast should start investigating road safety. I built a reproducible study of 8,142 casualty crashes from 2020–2024: Python and SQL, a 500 m spatial grid, a BigQuery spatial check, a Power BI report and a public map dashboard.",
+      "I wanted to use data to improve services where I live, so I asked where the Gold Coast should start investigating road safety. I built a reproducible study of 8,142 casualty crashes from 2020–2024: Python and SQL, a 500 m spatial grid, a BigQuery spatial check, a Power BI report on a star schema with DAX measures, and a public map dashboard.",
       "The top 20 squares cover 0.35% of the city but held 55 of the 695 serious crashes in held-out 2024, about 23 times their share by area. DBSCAN clustering caught 54, so the simpler count method stays. Fourteen of those 20 squares are mostly on state-controlled roads, mainly the Pacific Motorway, which TMR manages rather than the City. Ranking council roads separately gives the City its own list: it caught 40 of 384 serious crashes on council roads in 2024, against 24 for the combined list. Without traffic volumes, the counts can't measure risk per trip. The dashboard links to the methods, source code and reproducible data release.",
     ],
     metrics: [
@@ -51,7 +51,7 @@ export const works = [
       { raw: "55 / 695", label: "2024 serious crashes in the top 20 squares, ranked on 2021–2023" },
       { raw: "23×", label: "the top 20 squares' share of serious crashes versus their share of the city's area" },
     ],
-    stack: "python · sql · geopandas · dbscan · duckdb · bigquery · power bi · leaflet · mcp",
+    stack: "python · sql · geopandas · dbscan · duckdb · bigquery · power bi · dax · leaflet · mcp",
     shots: [{
       src: "./media/transport-evidence.jpg",
       alt: "Gold Coast crash dashboard: the top 20 squares on a street map, coloured by who manages the road, with the selected square's crash counts",
