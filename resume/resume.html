@@ -13,6 +13,7 @@
     line-height: 1.16;
     margin: 0;
   }
+  a { color: inherit; text-decoration: none; }
   h1 {
     font-size: 20pt;
     font-weight: 400;
@@ -55,10 +56,14 @@
 <body>
 
 <h1>MILAN SHAJI</h1>
-<div class="contact">milan.s.shaji@gmail.com | 0490 667 589 | Helensvale, QLD (open to relocation) | Portfolio: milanshaji.com | linkedin.com/in/milan-shaji | github.com/milanshaji1 | Australian Citizen</div>
+<div class="contact">
+  Helensvale, QLD (open to relocation) | 0490 667 589 | <a href="mailto:milan.s.shaji@gmail.com">milan.s.shaji@gmail.com</a><br>
+  <a href="https://milanshaji.com">milanshaji.com</a> | <a href="https://linkedin.com/in/milan-shaji">linkedin.com/in/milan-shaji</a> | <a href="https://github.com/milanshaji1">github.com/milanshaji1</a><br>
+  Australian Citizen | Current C Class driver&rsquo;s licence
+</div>
 
 <h2>Profile</h2>
-<p>Final-year QUT student completing a dual degree in Data Science and Business (Entrepreneurship &amp; Innovation), graduating late 2026. Strong technical base across Python, SQL, machine learning and data pipeline work, paired with a business degree that keeps the focus on business outcomes over model performance. Targeting graduate roles in data, analytics and AI that turn data into decisions the business can act on. Available from early 2027, Australian citizen.</p>
+<p>Final-year QUT Data Science and Business student graduating late 2026, available full-time from February 2027. Independent projects cover electricity-market analysis and a study of Gold Coast crash data. Brings three years of customer service experience and an interest in applying data science to Gold Coast infrastructure and community services.</p>
 
 <h2>Education</h2>
 <div class="entry">
@@ -69,77 +74,67 @@
   <div class="entry-sub">Bachelor of Data Science | Bachelor of Business (Entrepreneurship &amp; Innovation)</div>
   <ul>
     <li>Expected graduation late 2026; both degrees studied concurrently.</li>
-    <li>Relevant coursework: Machine Learning (PyTorch CNN image classification, 94% test-set accuracy), Applied Statistical Methods (R: regression, GLMs, spatial and time-series modelling), Business Intelligence, Data Science Capstone.</li>
+    <li>Relevant coursework: Machine Learning (PyTorch CNN image classification, 94% test-set accuracy); Applied Statistical Methods (R, regression, GLMs, spatial and time-series modelling); Business Intelligence; Algorithms and Complexity; Business Capstone (real-client consulting and client pitch); Data Science Capstone (in progress).</li>
   </ul>
 </div>
 
 <h2>Key Skills</h2>
-<p><span class="skill-cat">Data, AI &amp; Analytics:</span> Python (Pandas, NumPy, scikit-learn, PyTorch), SQL, R, machine learning and deep learning, computer vision (MediaPipe), LLM integration and evaluation (Claude API), statistical modelling, data pipeline design, ETL (extract, transform, load).</p>
-<p><span class="skill-cat">Visualisation &amp; BI:</span> Power BI, Tableau, Teradata, TouchDesigner (real-time interactive visuals), dashboard design, data storytelling for non-technical audiences.</p>
-<p><span class="skill-cat">Delivery &amp; Impact:</span> Requirements analysis, data quality and validation, technical documentation, business case writing, project delivery.</p>
-<p><span class="skill-cat">Tools &amp; Infrastructure:</span> AWS (S3, EC2), Git, Jupyter, Linux.</p>
-<p><span class="skill-cat">Communication:</span> Presenting technical work to non-technical stakeholders and clients, written reporting, team collaboration.</p>
+<p><span class="skill-cat">Data and programming:</span> Python (pandas, NumPy, scikit-learn, PyTorch), SQL (DuckDB, MySQL, relational database design), R, data pipelines and data validation.</p>
+<p><span class="skill-cat">Modelling and AI:</span> Statistical modelling, gradient boosting, temporal evaluation, CNN image classification, computer vision, LLM tool use and evaluation (Claude API).</p>
+<p><span class="skill-cat">Visualisation and BI:</span> Power BI, Tableau, spatial data visualisation and dashboards, GIS, spatial joins and BigQuery.</p>
+<p><span class="skill-cat">Delivery:</span> Git, GitHub Actions, AWS (S3, EC2), technical documentation, requirements analysis, client presentations and team collaboration.</p>
 
 <h2>Projects</h2>
 
 <div class="entry">
   <div class="row">
-    <span class="entry-title">Gold Coast Crash Hotspots — Independent Study</span>
+    <span class="entry-title">Gold Coast Crash Hotspots | Independent project</span>
     <span class="meta">October 2026</span>
   </div>
-  <div class="entry-sub"><a href="https://milanshaji.com/gold-coast-transport-evidence/">milanshaji.com/gold-coast-transport-evidence/</a></div>
+  <div class="entry-sub"><a href="https://milanshaji.com/gold-coast-transport-evidence/">milanshaji.com/gold-coast-transport-evidence</a></div>
   <ul>
-    <li>Built a reproducible Python and SQL study of 8,142 Gold Coast casualty crashes (2020–2024): 500 m spatial grid, BigQuery spatial check, Power BI star schema with DAX measures and a public Leaflet map dashboard.</li>
-    <li>On held-out 2024 data, the top 20 squares (0.35% of the city) held 55 of 695 serious crashes, about 23× their area share; DBSCAN clustering added nothing (54). Splitting by road manager gave the council its own list, catching 40 of 384 council-road crashes versus 24.</li>
-  </ul>
-</div>
-
-
-<div class="entry">
-  <div class="row">
-    <span class="entry-title">PaperTrail &mdash; Live Stock Screener &amp; Backtesting Engine</span>
-    <span class="meta">github.com/milanshaji1/paper-trail&nbsp;&nbsp;2026</span>
-  </div>
-  <ul>
-    <li>Built a full-stack live market terminal (Node.js, vanilla JavaScript, one runtime dependency) that screens roughly 1,550 US stocks and the top 50 cryptocurrencies every 60 seconds, aggregating six free no-key data sources into a transparent 1&ndash;5 rating and entry-timing engine where every score decomposes into its trend, momentum, quality, valuation and risk inputs.</li>
-    <li>Engineered backtesting and forward paper-trading engines (60 automated tests, test-driven, including look-ahead-bias guards that prove a decision at day <em>t</em> cannot see day <em>t</em>+1) to validate the signals against ten years of history and a live S&amp;P 500 benchmark.</li>
-    <li>Caught and fixed three bugs that had inflated backtest returns by 30+ percentage points (survivorship bias, hindsight universe selection, stale pricing), then reported the corrected finding: the signal set underperformed buying and holding the index.</li>
+    <li>Built a reproducible Python and SQL study of 8,142 Gold Coast casualty crashes (2020&ndash;2024): 500 m spatial grid, BigQuery spatial check, Power BI star schema with DAX measures and a public Leaflet map dashboard.</li>
+    <li>On held-out 2024 data, the top 20 squares (0.35% of the city) held 55 of 695 serious crashes, about 23&times; their area share; DBSCAN clustering added nothing (54). Splitting by road manager gave the council its own list, catching 40 of 384 council-road crashes versus 24.</li>
   </ul>
 </div>
 
 <div class="entry">
   <div class="row">
-    <span class="entry-title">Dispatch &mdash; AI Market Analyst for Australia&rsquo;s Electricity Grid</span>
-    <span class="meta">github.com/milanshaji1/dispatch&nbsp;&nbsp;2026</span>
-  </div>
-  <ul>
-    <li>Built an end-to-end ML and GenAI system on live energy-market data: ingests 1M+ rows of 5-minute AEMO price and demand data into a DuckDB pipeline gated by 44 automated tests, refreshed daily.</li>
-    <li>Trained a gradient-boosted price-spike early-warning model achieving 71% recall of $300+/MWh spike days at a 20% alert budget in a six-month rolling-origin backtest (February–July 2026), versus 58% for baseline methods.</li>
-    <li>Engineered an LLM analyst agent whose daily market briefings cite 21&ndash;25 figures, each programmatically re-verified against source data before publication; scored 100% (30/30) on a golden-question evaluation set at $0.06&ndash;$0.12 per brief.</li>
-    <li>Deployed as a fully automated daily pipeline (GitHub Actions) with a Streamlit dashboard; verified briefs publish unattended every morning.</li>
-  </ul>
-</div>
-
-<div class="entry">
-  <div class="row">
-    <span class="entry-title">Gesture Canvas &mdash; Hand-Tracked Visuals with an LLM Scene Director</span>
+    <span class="entry-title">Dispatch | AI Market Analyst for Australia&rsquo;s Electricity Grid</span>
     <span class="meta">2026</span>
   </div>
-  <div class="entry-sub">github.com/milanshaji1/gesture-canvas</div>
+  <div class="entry-sub"><a href="https://github.com/milanshaji1/dispatch">github.com/milanshaji1/dispatch</a></div>
   <ul>
-    <li>Built a webcam-based hand-tracking interface using MediaPipe and TouchDesigner, with schema validation preventing invalid LLM scene commands from reaching the live display. Validated 531/531 true pinches across 1,847 recorded frames, with zero false positives across 5,400+ open-hand and no-hand frames and 50 automated tests.</li>
+    <li>Built a daily Python and SQL pipeline processing over one million five-minute electricity price and demand observations from AEMO into DuckDB, with 44 automated tests.</li>
+    <li>Evaluated a gradient-boosted model for $300+/MWh spike days across six held-out months (February&ndash;July 2026): 71% recall versus 58% for both baselines at the same 20% alert budget.</li>
+    <li>Built an LLM market-briefing workflow that checks numerical claims against SQL results before publication, with a recorded 30/30 result on a defined question set; automated delivery through GitHub Actions and a Streamlit dashboard.</li>
   </ul>
 </div>
 
-<h2>Certifications &amp; Professional Development</h2>
-<ul>
-  <li><span class="skill-cat">Quantium Data Analytics Job Simulation, Forage (Mar 2026):</span> customer segmentation and uplift analysis in Python, delivered as business recommendations for non-technical stakeholders.</li>
-  <li><span class="skill-cat">Commonwealth Bank Introduction to Data Science, Forage (Mar 2026):</span> data analysis and pattern recognition in an enterprise context, focused on communicating findings to non-technical decision-makers.</li>
-  <li><span class="skill-cat">ANZ Data Analytics &amp; Visualisation, Forage (Apr 2026):</span> transaction-data analysis and reporting in a regulated environment, with emphasis on accuracy and data integrity.</li>
-  <li><span class="skill-cat">Kaggle Machine Learning Competitions (2024 &ndash; present):</span> ongoing classification, regression and NLP work on real-world datasets outside coursework; best finish top 7% of roughly 3,500 entrants.</li>
-</ul>
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">PaperTrail | Stock Screener and Backtesting Engine</span>
+    <span class="meta">2026</span>
+  </div>
+  <div class="entry-sub"><a href="https://github.com/milanshaji1/paper-trail">github.com/milanshaji1/paper-trail</a></div>
+  <ul>
+    <li>Built a Node.js stock-screening and backtesting application combining six data sources, with 60 automated tests including checks against future data influencing historical decisions.</li>
+    <li>Identified and corrected three backtesting bugs involving survivorship bias, hindsight universe selection and stale prices; reported that the corrected strategy underperformed buying and holding the index.</li>
+  </ul>
+</div>
 
-<h2>Leadership &amp; Work Experience</h2>
+<div class="entry">
+  <div class="row">
+    <span class="entry-title">Gesture Canvas | Hand Tracking and LLM Scene Control</span>
+    <span class="meta">2026</span>
+  </div>
+  <div class="entry-sub"><a href="https://github.com/milanshaji1/gesture-canvas">github.com/milanshaji1/gesture-canvas</a></div>
+  <ul>
+    <li>Built a webcam-based hand-tracking interface using MediaPipe and TouchDesigner, with schema validation preventing invalid LLM scene commands from reaching the live display.</li>
+  </ul>
+</div>
+
+<h2>Work Experience</h2>
 <div class="entry">
   <div class="row">
     <span class="entry-title">Universal Store, Sales Associate</span>
@@ -163,8 +158,15 @@
 
 <h2>Leadership &amp; Extracurricular</h2>
 <ul>
-  <li><span class="skill-cat">QUT Data Science Club, Committee Member (2024 &ndash; present):</span> help run technical workshops and events, including a student data hackathon for around 40 participants.</li>
+  <li><span class="skill-cat">QUT Data Science Club, Committee Member (2024&ndash;present):</span> help run technical workshops and events, including a student data hackathon for around 40 participants.</li>
+  <li><span class="skill-cat">Entrepreneurial Incubator, QUT Business School (2024&ndash;2025):</span> built a venture&rsquo;s Lean Startup Canvas and pitched to external venture funders to secure funding.</li>
   <li><span class="skill-cat">Volunteer tutor, quantitative units:</span> support first-year students with statistics and programming, translating difficult concepts into plain language.</li>
+</ul>
+
+<h2>Professional Development &amp; Competitions</h2>
+<ul>
+  <li>Forage job simulations: Quantium Data Analytics and Commonwealth Bank Introduction to Data Science (March 2026); ANZ Data Analytics &amp; Visualisation (April 2026). Applied data analysis and reporting to business scenarios.</li>
+  <li><span class="skill-cat">Kaggle Machine Learning Competitions (2024&ndash;present):</span> classification, regression and NLP work outside coursework; best finish top 7% of roughly 3,500 entrants.</li>
 </ul>
 
 </body>
