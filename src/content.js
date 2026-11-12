@@ -88,7 +88,7 @@ export const works = [
     id: "dispatch",
     title: "Dispatch",
     caption: "2026 / energy-market ML + LLM / publishes daily, unattended",
-    hoverline: "71% recall · 30/30 evals · ~$0.07/brief",
+    hoverline: "71% recall · 30/30 evals · ~$0.11/brief",
     link: "https://github.com/milanshaji1/dispatch",
     linkLabel: "github.com/milanshaji1/dispatch",
     body: [
@@ -99,7 +99,7 @@ export const works = [
       { value: 71, suffix: "%", label: "spike-day recall @ 20% alert budget (baselines reached 58%)" },
       { value: 30, suffix: "/30", label: "golden-question evals, live run" },
       { value: 44, suffix: "", label: "tests gating every ingest: data quality, leakage, verification" },
-      { raw: "$0.06–0.12", label: "cost per verified brief, across five measured runs" },
+      { raw: "$0.11", label: "median cost per verified brief, across 121 published briefs" },
     ],
     stack: "python · duckdb · gradient boosting · claude api · github actions · streamlit",
     shots: [
@@ -201,7 +201,7 @@ export const info = {
   ],
   log: [
     ["2026", "PaperTrail, Dispatch, Gesture Canvas & Handtracked VFX shipped · Forage simulations (Quantium, CommBank, ANZ)"],
-    ["2022–2026", "QUT dual degree: Data Science | Business (Ent. & Innovation)"],
+    ["2023–2026", "QUT dual degree: Data Science | Business (Ent. & Innovation)"],
     ["2024–now", "QUT Data Science Club committee · volunteer tutor · Kaggle (best: top 7% of ~3,500)"],
     ["2023–now", "Universal Store, sales associate"],
     ["2022", "Rivers, sales associate"],
